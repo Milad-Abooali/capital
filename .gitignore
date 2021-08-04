@@ -17,7 +17,9 @@
 ##########################################################################
 
 ### Mahan Core ###
-
+/core/session
+/files/cache
+/files/logs
 
 ### Composer Exceptin ###
 /vendor/
