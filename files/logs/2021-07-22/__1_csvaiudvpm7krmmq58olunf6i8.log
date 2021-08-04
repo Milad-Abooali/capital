@@ -1,0 +1,68 @@
+[22-Jul-2021 05:06:17 Asia/Tehran] PHP Warning:  Undefined variable $thiss in C:\wamp64\www\Mahan_4\ui\default\home.php on line 20
+[22-Jul-2021 05:06:17 Asia/Tehran] PHP Warning:  Attempt to read property "Page_DATA" on null in C:\wamp64\www\Mahan_4\ui\default\home.php on line 20
+[22-Jul-2021 05:06:17 Asia/Tehran] PHP Warning:  Attempt to read property "tedst" on null in C:\wamp64\www\Mahan_4\ui\default\home.php on line 20
+[22-Jul-2021 06:14:48 Asia/Tehran] PHP Warning:  Undefined property: stdClass::$tedst in C:\wamp64\www\Mahan_4\ui\default\home.php on line 20
+[22-Jul-2021 06:14:58 Asia/Tehran] PHP Warning:  Undefined property: stdClass::$tedst in C:\wamp64\www\Mahan_4\ui\default\home.php on line 20
+[22-Jul-2021 07:15:42 Asia/Tehran] PHP Warning:  Undefined array key "Config" in C:\wamp64\www\Mahan_4\core\lib\view.php on line 72
+[22-Jul-2021 07:15:42 Asia/Tehran] PHP Warning:  Trying to access array offset on value of type null in C:\wamp64\www\Mahan_4\core\lib\view.php on line 72
+[22-Jul-2021 07:15:42 Asia/Tehran] PHP Warning:  Undefined array key "Config" in C:\wamp64\www\Mahan_4\core\lib\view.php on line 72
+[22-Jul-2021 07:15:42 Asia/Tehran] PHP Warning:  Trying to access array offset on value of type null in C:\wamp64\www\Mahan_4\core\lib\view.php on line 72
+[22-Jul-2021 07:31:18 Asia/Tehran] PHP Fatal error:  Uncaught Error: Class "Mahan4\ajax" not found in C:\wamp64\www\Mahan_4\index.php:167
+Stack trace:
+#0 {main}
+  thrown in C:\wamp64\www\Mahan_4\index.php on line 167
+[22-Jul-2021 07:31:37 Asia/Tehran] PHP Warning:  Undefined array key "M" in C:\wamp64\www\Mahan_4\core\m.php on line 49
+[22-Jul-2021 07:31:37 Asia/Tehran] PHP Warning:  Trying to access array offset on value of type null in C:\wamp64\www\Mahan_4\core\m.php on line 49
+[22-Jul-2021 07:31:37 Asia/Tehran] PHP Warning:  Trying to access array offset on value of type null in C:\wamp64\www\Mahan_4\core\m.php on line 49
+[22-Jul-2021 07:31:37 Asia/Tehran] PHP Fatal error:  Uncaught TypeError: Mahan4\ajax::act(): Argument #1 ($function) must be of type string, null given, called in C:\wamp64\www\Mahan_4\index.php on line 170 and defined in C:\wamp64\www\Mahan_4\core\lib\ajax.php:51
+Stack trace:
+#0 C:\wamp64\www\Mahan_4\index.php(170): Mahan4\ajax->act(NULL, 'ajax')
+#1 {main}
+  thrown in C:\wamp64\www\Mahan_4\core\lib\ajax.php on line 51
+[22-Jul-2021 07:32:25 Asia/Tehran] PHP Warning:  Undefined array key "TOKEN" in C:\wamp64\www\Mahan_4\core\m.php on line 49
+[22-Jul-2021 07:32:25 Asia/Tehran] PHP Warning:  Trying to access array offset on value of type null in C:\wamp64\www\Mahan_4\core\m.php on line 49
+[22-Jul-2021 07:32:25 Asia/Tehran] PHP Fatal error:  Uncaught TypeError: Mahan4\ajax::act(): Argument #1 ($function) must be of type string, null given, called in C:\wamp64\www\Mahan_4\index.php on line 170 and defined in C:\wamp64\www\Mahan_4\core\lib\ajax.php:51
+Stack trace:
+#0 C:\wamp64\www\Mahan_4\index.php(170): Mahan4\ajax->act(NULL, 'ajax')
+#1 {main}
+  thrown in C:\wamp64\www\Mahan_4\core\lib\ajax.php on line 51
+[22-Jul-2021 07:32:38 Asia/Tehran] PHP Fatal error:  Uncaught TypeError: Mahan4\ajax::act(): Argument #1 ($function) must be of type string, null given, called in C:\wamp64\www\Mahan_4\index.php on line 170 and defined in C:\wamp64\www\Mahan_4\core\lib\ajax.php:51
+Stack trace:
+#0 C:\wamp64\www\Mahan_4\index.php(170): Mahan4\ajax->act(NULL, 'ajax')
+#1 {main}
+  thrown in C:\wamp64\www\Mahan_4\core\lib\ajax.php on line 51
+[22-Jul-2021 07:33:41 Asia/Tehran] PHP Fatal error:  Uncaught Error: Class "Mahan4\stdClass" not found in C:\wamp64\www\Mahan_4\core\lib\ajax.php:54
+Stack trace:
+#0 C:\wamp64\www\Mahan_4\index.php(170): Mahan4\ajax->act(NULL, 'ajax')
+#1 {main}
+  thrown in C:\wamp64\www\Mahan_4\core\lib\ajax.php on line 54
+[22-Jul-2021 07:34:26 Asia/Tehran] PHP Fatal error:  Uncaught TypeError: Mahan4\ajax::act(): Return value must be of type string, none returned in C:\wamp64\www\Mahan_4\core\lib\ajax.php:70
+Stack trace:
+#0 C:\wamp64\www\Mahan_4\index.php(170): Mahan4\ajax->act(NULL, 'ajax')
+#1 {main}
+  thrown in C:\wamp64\www\Mahan_4\core\lib\ajax.php on line 70
+[22-Jul-2021 07:34:30 Asia/Tehran] PHP Fatal error:  Uncaught TypeError: Mahan4\ajax::act(): Return value must be of type string, none returned in C:\wamp64\www\Mahan_4\core\lib\ajax.php:70
+Stack trace:
+#0 C:\wamp64\www\Mahan_4\index.php(170): Mahan4\ajax->act(NULL, 'ajax')
+#1 {main}
+  thrown in C:\wamp64\www\Mahan_4\core\lib\ajax.php on line 70
+[22-Jul-2021 07:43:13 Asia/Tehran] PHP Fatal error:  Uncaught TypeError: Mahan4\m::jsConsole(): Argument #1 ($value) must be of type string, array given, called in C:\wamp64\www\Mahan_4\index.php on line 210 and defined in C:\wamp64\www\Mahan_4\core\m.php:142
+Stack trace:
+#0 C:\wamp64\www\Mahan_4\index.php(210): Mahan4\m::jsConsole(Array)
+#1 {main}
+  thrown in C:\wamp64\www\Mahan_4\core\m.php on line 142
+[22-Jul-2021 07:53:48 Asia/Tehran] PHP Warning:  Undefined variable $debugger in C:\wamp64\www\Mahan_4\core\lib\ajax.php on line 58
+[22-Jul-2021 08:06:13 Asia/Tehran] PHP Parse error:  syntax error, unexpected token "\" in C:\wamp64\www\Mahan_4\core\lib\ajax.php on line 64
+[22-Jul-2021 08:06:23 Asia/Tehran] PHP Parse error:  syntax error, unexpected token "\" in C:\wamp64\www\Mahan_4\core\lib\ajax.php on line 64
+[22-Jul-2021 08:15:00 Asia/Tehran] PHP Fatal error:  Uncaught TypeError: Mahan4\AJAX\test(): Argument #1 ($debugger) must be of type Mahan4\AJAX\debugger, Mahan4\debugger given, called in C:\wamp64\www\Mahan_4\core\lib\ajax.php on line 64 and defined in C:\wamp64\www\Mahan_4\process\ajax\global.php:5
+Stack trace:
+#0 C:\wamp64\www\Mahan_4\core\lib\ajax.php(64): Mahan4\AJAX\test(Object(Mahan4\debugger))
+#1 C:\wamp64\www\Mahan_4\index.php(171): Mahan4\ajax->act('Mahan4\\AJAX\\tes...', 'global')
+#2 {main}
+  thrown in C:\wamp64\www\Mahan_4\process\ajax\global.php on line 5
+[22-Jul-2021 08:15:01 Asia/Tehran] PHP Fatal error:  Uncaught TypeError: Mahan4\AJAX\test(): Argument #1 ($debugger) must be of type Mahan4\AJAX\debugger, Mahan4\debugger given, called in C:\wamp64\www\Mahan_4\core\lib\ajax.php on line 64 and defined in C:\wamp64\www\Mahan_4\process\ajax\global.php:5
+Stack trace:
+#0 C:\wamp64\www\Mahan_4\core\lib\ajax.php(64): Mahan4\AJAX\test(Object(Mahan4\debugger))
+#1 C:\wamp64\www\Mahan_4\index.php(171): Mahan4\ajax->act('Mahan4\\AJAX\\tes...', 'global')
+#2 {main}
+  thrown in C:\wamp64\www\Mahan_4\process\ajax\global.php on line 5
