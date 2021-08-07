@@ -155,6 +155,7 @@
      * Routing
      */
     $view = array();
+    define('ASSETS_PATH',APP['WS']['protocol'].APP['WS']['url'].'assets/'.APP['CONFIG']['ui'].'/');
     try {
         m::include('routing.php', 1);
         if(APP['CONFIG']['maintenance'] && !$_SESSION['M4']['DEV']) {
@@ -164,7 +165,7 @@
             $requested_view = $_SERVER['REDIRECT_URL'] ?? '//';
             $req_view = trim($requested_view, '/');
             $req_units = explode('/', $req_view);
-            if($req_units[0]=='ajax'){
+            if($req_units[0]=='ajax') {
                 $ajax = new ajax($debugger);
                 $class = $req_units[2] ?? 'global';
                 $function = $req_units[1] ?? null;
