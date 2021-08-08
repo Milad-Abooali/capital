@@ -653,16 +653,16 @@ try {
             </div>
         </div>
 
-<?php
-try {
-    $path = self::UI_PATH.'global/foot.php';
-    (file_exists($path))
-        ? require_once $path
-        : throw new Exception("<strong style='color: #ef661b'>$path</strong> is not exist.");
-} catch (Exception $e) {
-    die($e->getMessage());
-}
-?>
+        <?php
+        try {
+            $path = self::UI_PATH.'global/foot.php';
+            (file_exists($path))
+                ? require_once $path
+                : throw new Exception("<strong style='color: #ef661b'>$path</strong> is not exist.");
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+        ?>
 
     </div>
 </main>
