@@ -20,3 +20,4 @@
         <link id="pagestyle" href="<?= ASSETS_PATH ?>css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
         <?php foreach($this->Global_DATA['header'] as $item) echo $item; ?>
     </head>
+    <body class="g-sidenav-show  bg-gray-100">
