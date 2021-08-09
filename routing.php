@@ -24,19 +24,9 @@
     global $routing;
 
     // Test Section
-    $routing['test']['/'] = [
-        'ui'        =>  'test',
+    $routing['login']['/'] = [
+        'ui'        =>  'login',
         'cache'     =>  true,
-        'plugin'    =>  false
-    ];
-    $routing['test']['a']['/'] = [
-        'ui'        =>  'aaaaaaaaa',
-        'cache'     =>  true,
-        'plugin'    =>  false
-    ];
-    $routing['test']['b']['/'] = [
-        'ui'        =>  'bbbbbbb',
-        'cache'     =>  false,
         'plugin'    =>  false
     ];
 
