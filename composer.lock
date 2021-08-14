@@ -4,60 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bfc67e01b5b1122a9f7c12c57be081b2",
-    "packages": [
-        {
-            "name": "milad-abooali/csc-list",
-            "version": "1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Milad-Abooali/CSC-List.git",
-                "reference": "388e413cf8dabb4bbbb7cec0a4f8f75e4af515ea"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Milad-Abooali/CSC-List/zipball/388e413cf8dabb4bbbb7cec0a4f8f75e4af515ea",
-                "reference": "388e413cf8dabb4bbbb7cec0a4f8f75e4af515ea",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.0.3"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "cscList\\cscList"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "printIP\\": "src"
-                },
-                "files": [
-                    "src/cscList.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GNU"
-            ],
-            "authors": [
-                {
-                    "name": "Milad Abooali",
-                    "email": "m.abooali@hotmail.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "Country / Stats / City - Class",
-            "support": {
-                "issues": "https://github.com/Milad-Abooali/CSC-List/issues",
-                "source": "https://github.com/Milad-Abooali/CSC-List/tree/1.0.0"
-            },
-            "time": "2021-08-14T19:29:44+00:00"
-        }
-    ],
+    "content-hash": "9b4d543f72ebeb9561f7e9f096e286a9",
+    "packages": [],
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
