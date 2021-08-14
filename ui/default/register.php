@@ -72,11 +72,10 @@
                                     </div>
                                     <label for="country">Country</label>
                                     <div class="mb-3">
-                                        <?php Mahan4\m::print($this->Page_DATA->countries) ?>
-
                                         <select id="country" name="country" class="form-control" placeholder="Country">
-
-                                            <option value="Zimbabwe">Zimbabwe</option>
+                                            <?php foreach ($this->Page_DATA->countries as $code=>$country) { ?>
+                                                <option value="<?= $code ?>"><?= $country ?></option>
+                                            <?php } ?>
                                         </select>
                                     </div>
                                     <label for="city">City</label>
