@@ -24926,4 +24926,7 @@ pre[class*="language-"] {
   }
 }
 
+.cb-hide{
+  display: none;
+}
 /*# sourceMappingURL=dashboard-free.css.map */

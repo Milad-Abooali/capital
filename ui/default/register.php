@@ -86,10 +86,10 @@
                                         <button type="button" class="btn bg-gradient-info w-100 mt-4 mb-0">Sign up</button>
                                     </div>
                                 </form>
-                                <div class="alert alert-success text-light" id="alert-register">
+                                <div class="cb-hide alert alert-success text-light" id="alert-register">
                                     <strong>Danger!</strong> This is a danger alert—check it out!
                                 </div>
-                                <div class="alert alert-danger text-light" id="alert-register">
+                                <div class="cb-hide alert alert-danger text-light" id="alert-register">
                                     <strong>Danger!</strong> This is a danger alert—check it out!
                                 </div>
                             </div>
