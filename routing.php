@@ -23,13 +23,18 @@
 
     global $routing;
 
-    // Test Section
+    // Login
     $routing['login']['/'] = [
         'ui'        =>  'login',
         'cache'     =>  true,
         'plugin'    =>  false
     ];
-
+    // Register
+    $routing['register']['/'] = [
+        'ui'        =>  'register',
+        'cache'     =>  true,
+        'plugin'    =>  false
+    ];
     // Home
     $routing['/'] = $routing['home']['/'] = $routing['index']['/'] = [
         'process'   =>  'main/test.php',
