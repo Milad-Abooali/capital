@@ -266,13 +266,9 @@ class CSC {
 	/**
 	 * @return array
 	 */
-	public function countries(){
-		$list = array();
-		foreach($this->data as $rarray){
-			array_push($list, $rarray[0]);
-		}
-		sort($list);
-		return $list;
+	public function countries(): array
+    {
+		return array_column($this->data, 0, 1);
 	}
 
 	/**

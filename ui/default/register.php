@@ -72,8 +72,9 @@
                                     </div>
                                     <label for="country">Country</label>
                                     <div class="mb-3">
+                                        <?php Mahan4\m::print($this->Page_DATA->countries) ?>
+
                                         <select id="country" name="country" class="form-control" placeholder="Country">
-                                            <?php \Mahan4\m::print($this->Page_DATA) ?>
 
                                             <option value="Zimbabwe">Zimbabwe</option>
                                         </select>

@@ -31,7 +31,7 @@
     ];
     // Register
     $routing['register']['/'] = [
-        'ui'        =>  'register',
+        'process'        =>  'register.php',
         'ui'        =>  'register',
         'cache'     =>  true,
         'plugin'    =>  false
