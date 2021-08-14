@@ -7,7 +7,6 @@
     "ext-mysqli": "*",
     "ext-mbstring": "*",
     "ext-pdo_sqlite": "*",
-    "milad-abooali/csc-list": "^1.0"
   },
   "name": "codebox/capital",
   "description": "Capital CRM"
