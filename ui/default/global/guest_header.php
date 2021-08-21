@@ -20,6 +20,8 @@
     <!-- CSS Files -->
     <link id="pagestyle" href="<?= ASSETS_PATH ?>css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
     <link id="pagestyle" href="<?= ASSETS_PATH ?>css/codebox.css" rel="stylesheet" />
+
+    <meta name="codebox-cdn" content="https://icdn.codebox.ir/">
 </head>
 
 <body class="">
