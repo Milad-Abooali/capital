@@ -141,7 +141,7 @@
          */
         public static function jsConsole(string $value): void
         {
-            echo "<script>console.log($value)</script>";
+            echo "<script>console.log('$value')</script>";
         }
 
         /**

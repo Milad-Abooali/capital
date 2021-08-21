@@ -42,9 +42,8 @@
         <div class="row">
             <div class="col-8 mx-auto text-center mt-1">
                 <p class="mb-0 text-secondary">
-                    Copyright © <script>
-                        document.write(new Date().getFullYear());
-                    </script> Soft by Creative Tim.
+                    Copyright © <script>document.write(new Date().getFullYear())</script>
+                    Capital by Codebox.
                 </p>
             </div>
         </div>
@@ -55,6 +54,6 @@
     try {
         Mahan4\m::js(ASSETS_PATH.'js/guest.js');
     } catch (Exception $e) {
-        Mahan4\m::jsConsole('Guest.js Not Found!');
+        Mahan4\m::jsConsole('guest.js Not Found!');
     }
 ?>
