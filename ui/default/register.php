@@ -89,8 +89,8 @@ try {
 ?>
 
 <!--   Core JS Files   -->
-<script src="<?= ASSETS_PATH ?>js/core/popper.min.js"></script>
-<script src="<?= ASSETS_PATH ?>js/core/bootstrap.min.js"></script>
+<script src="<?= ASSETS_PATH ?>js/popper.min.js"></script>
+<script src="<?= ASSETS_PATH ?>js/bootstrap.min.js"></script>
 <script src="<?= ASSETS_PATH ?>js/perfect-scrollbar.min.js"></script>
 <script src="<?= ASSETS_PATH ?>js/smooth-scrollbar.min.js"></script>
 <script>

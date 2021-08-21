@@ -108,7 +108,7 @@
          * @return string
          * @throws Exception
          */
-        public static function js(string $path, ?string $defer=defer): string
+        public static function js(string $path, ?string $defer='defer'): string
         {
             if(file_exists($path))
                 return "<script src='$path'$defer></script>";

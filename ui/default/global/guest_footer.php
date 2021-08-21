@@ -52,13 +52,9 @@
 </footer>
 
 <?php
-    Mahan4\m::js(ASSETS_PATH.'js/guest.js');
-
     try {
         Mahan4\m::js(ASSETS_PATH.'js/guest.js');
     } catch (Exception $e) {
-        echo $e;
         Mahan4\m::jsConsole('Guest.js Not Found!');
     }
-    echo 1;
 ?>
