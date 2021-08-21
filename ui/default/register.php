@@ -1,4 +1,15 @@
 
+<?php
+try {
+    $path = self::UI_PATH.'global/guest_header.php';
+    (file_exists($path))
+        ? require_once $path
+        : throw new Exception("<strong style='color: #ef661b'>$path</strong> is not exist.");
+} catch (Exception $e) {
+    die($e->getMessage());
+}
+?>
+
 <main class="main-content  mt-0">
     <section>
         <div class="page-header min-vh-75">
