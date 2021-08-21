@@ -52,9 +52,13 @@
 </footer>
 
 <?php
+    Mahan4\m::js(ASSETS_PATH.'js/guest.js');
+
     try {
-        Mahan4\m::js(ASSETS_PATH.'js/gust.js');
+        Mahan4\m::js(ASSETS_PATH.'js/guest.js');
     } catch (Exception $e) {
-        Mahan4\m::jsConsole('Gust.js Not Found!');
+        echo $e;
+        Mahan4\m::jsConsole('Guest.js Not Found!');
     }
+    echo 1;
 ?>
