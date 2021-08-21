@@ -1,3 +1,12 @@
+/**
+ * Meta Vars
+ */
+var appT = $("meta[name=codebox-js]").attr('app-t');
+
+
+/**
+ * Guests Pages
+ */
 
 // Ajax Call- Core
 var AjaxLock;
@@ -6,7 +15,7 @@ async function AjaxCall(callClass, callFunction, data=null, callback) {
     AjaxLock = callClass+callFunction;
     $.ajax({
         type: "POST",
-        url: "lib/ajax.php?c="+callClass+'&f='+callFunction+"&t=2bf06187d3efc5de29a11218aa1a48d0",
+        url: "lib/ajax.php?c="+callClass+'&f='+callFunction+"&t="+appT,
         data: data,
         cache: false,
         global: true,
