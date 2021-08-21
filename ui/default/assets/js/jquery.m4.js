@@ -1,5 +1,5 @@
 /**
- * Mahan Ajax Call
+ * Ajax Call
  */
 (function( $ ){
     $.fn.m4_Ajax = function() {

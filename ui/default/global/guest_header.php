@@ -16,6 +16,8 @@
     <link href="<?= ASSETS_PATH ?>css/nucleo-svg.css" rel="stylesheet" />
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+    <script src="<?= ASSETS_PATH ?>js/jquery-3.6.0.min.js"></script>
+    <script src="<?= ASSETS_PATH ?>js/jquery.m4.js"></script>
     <link href="<?= ASSETS_PATH ?>css/nucleo-svg.css" rel="stylesheet" />
     <!-- CSS Files -->
     <link id="pagestyle" href="<?= ASSETS_PATH ?>css/soft-ui-dashboard.css?v=1.0.3" rel="stylesheet" />
