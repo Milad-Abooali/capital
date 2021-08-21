@@ -50,3 +50,11 @@
         </div>
     </div>
 </footer>
+
+<?php
+    try {
+        Mahan4\m::js(ASSETS_PATH.'js/gust.js');
+    } catch (Exception $e) {
+        Mahan4\m::jsConsole('Gust.js Not Found!');
+    }
+?>
