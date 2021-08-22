@@ -152,6 +152,11 @@
     $m_global['uid'] = md5(APP['TOKEN']['mahan'].m::randomString());
 
     /**
+     * Echo Ajax Token
+     */
+    $m_global['header'][] = '<meta name="app-t" content="'.APP['TOKEN']['ajax'].'">';
+
+    /**
      * Routing
      */
     $view = array();
