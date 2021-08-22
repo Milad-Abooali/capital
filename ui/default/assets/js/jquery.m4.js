@@ -2,16 +2,16 @@
  * Ajax Call
  */
 (function ( $ ) {
+
+    var appToken = $("meta[name=app-t]").attr('content');
+
     $.fn.m4_Ajax = function( options ) {
         var settings = $.extend({
             color: "#fff",
             backgroundColor: "white"
         }, options );
         this.each(function() {
-            this.css({
-                color: settings.color,
-                backgroundColor: settings.backgroundColor
-            });
+            alert(appToken);
         });
         return this;
     };

@@ -49,12 +49,4 @@
         </div>
     </div>
 </footer>
-
-<?php
-    try {
-        Mahan4\m::js(ASSETS_PATH.'js/guest.js');
-    } catch (Exception $e) {
-        echo $e;
-        Mahan4\m::jsConsole('guest.js Not Found!');
-    }
-?>
+<script src="<?= ASSETS_PATH ?>js/guest.js"></script>

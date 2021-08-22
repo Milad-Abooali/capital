@@ -1,16 +1,9 @@
 /**
- * Meta Vars
- */
-var appT = $("meta[name=codebox-js]").attr('app-t');
-
-
-/**
  * Guests Pages
  */
 
-    $('body').on('click','div', function() {
+    $('body').on('click','div > p', function() {
         $(this).m4_Ajax();
-        alert(this);
     });
 
 

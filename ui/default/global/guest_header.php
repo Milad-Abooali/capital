@@ -24,8 +24,6 @@
     <link id="pagestyle" href="<?= ASSETS_PATH ?>css/codebox.css" rel="stylesheet" />
 
     <?php foreach($this->Global_DATA['header'] as $item) echo $item; ?>
-
-    <meta name="app-t" content="https://icdn.codebox.ir/">
 </head>
 
 <body class="">
