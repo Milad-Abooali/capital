@@ -4,7 +4,7 @@
 (function ( $ ) {
     $.fn.m4_Ajax = function( options ) {
         var settings = $.extend({
-            color: "#556b2f",
+            color: "#fff",
             backgroundColor: "white"
         }, options );
         this.each(function() {
