@@ -27,23 +27,31 @@
     class user
     {
 
-        public array $data;
+        public int $ID=0;
         public bool $virtual=true;
+        public static string $DB_TABLE='users';
+        private string $error='';
         private ?i_mysql $db;
         private debugger|null $debugger=null;
 
         /**
          * user constructor.
          */
-        function __construct(int $id=null, debugger|null $debugger=null) {
-            if($id) $this->select($id);
+        function __construct(int $id, debugger|null $debugger=null) {
+            $this->debugger = $debugger;
             global $db_main;
             $this->db = $db_main;
-            $this->debugger = $debugger;
-            $debugger?->log('User','0','Libraries', 'No database connection!');
-            if($this->db==null) return false;
+            if($this->db==null)
+                $this->error =  'No database connection!';
+            if($this->db->exist(self::$DB_TABLE)==false)
+                $this->error = "table doesn't exist!";
+            if($this->error){
+                $this->debugger?->log('user','0','user Lib', $this->error);
+                $this->db = null;
+            }
+            else
+                $this->ID = $id;
         }
-
 
         /*
          * Add User
@@ -57,9 +65,21 @@
         /*
          * Select User
          */
-        public function select(int $id, bool $virtual) : bool
+        public function select(?int $id) : array
         {
+            if(!isset($id)) $id = $this->ID;
+            $result = $this->db->selectId(self::$DB_TABLE, $id);
+            $this->debugger?->log('user',boolval($result),'user Lib', json_encode($result));
+            return $result;
+        }
 
+
+        /*
+         * Sync User Session/Database
+         */
+        public function sync(int $id) : bool
+        {
+            $_SESSION['M']['user'] = $this->select();
         }
 
 

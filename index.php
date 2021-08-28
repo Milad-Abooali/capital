@@ -157,6 +157,11 @@
     $m_global['header'][] = '<meta name="app-t" content="'.md5(APP['TOKEN']['ajax'].session_id()).'">';
 
     /**
+     * User
+     */
+    $user = (MAHAN['LIB']['user']) ?  new user(($_SESSION['M']['user_id'] ?? 0), $debugger) : null;
+
+    /**
      * Routing
      */
     $view = array();
