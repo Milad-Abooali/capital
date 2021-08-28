@@ -59,6 +59,7 @@
         {
             $id = $this->db?->insert(self::$DB_TABLE, $data);
             $this->debugger?->log('Add', boolval($id),'user Lib', json_encode($data));
+            $this->sync($id);
             return $id;
         }
 
@@ -102,7 +103,6 @@
             $this->debugger?->log('Select', boolval($result),'user Lib', json_encode($result));
             return $result;
         }
-
 
         /*
          * Sync User Session/Database
