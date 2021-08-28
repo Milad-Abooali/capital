@@ -28,11 +28,10 @@
     {
 
         public int $ID=0;
-        public bool $virtual=true;
         public static string $DB_TABLE='users';
         private string $error='';
         private ?i_mysql $db;
-        private debugger|null $debugger=null;
+        private ?debugger $debugger;
 
         /**
          * user constructor.
@@ -43,10 +42,10 @@
             $this->db = $db_main;
             if($this->db==null)
                 $this->error =  'No database connection!';
-            if($this->db->exist(self::$DB_TABLE)==false)
+            if($this->db->isTable(self::$DB_TABLE)==false)
                 $this->error = "table doesn't exist!";
             if($this->error){
-                $this->debugger?->log('user','0','user Lib', $this->error);
+                $this->debugger?->log('Initial','0','user Lib', $this->error);
                 $this->db = null;
             }
             else
@@ -58,18 +57,49 @@
          */
         public function add(array $data) : int
         {
-
+            $id = $this->db?->insert(self::$DB_TABLE, $data);
+            $this->debugger?->log('Add', boolval($id),'user Lib', json_encode($data));
+            return $id;
         }
 
+        /*
+         * Delete User
+         */
+        public function delete(int $id) : bool
+        {
+            if($_SESSION['M']['user']['id']===$id){
+                $this->debugger?->log('Delete', 0,'user Lib', "Self delete, user id:$id");
+                return false;
+            }
+            $result = $this->db?->deleteId(self::$DB_TABLE, $id);
+            $this->debugger?->log('Delete', $result,'user Lib', "User id:$id");
+            return $result;
+        }
+
+        /*
+         * Update User
+         */
+        public function update(array $data,?int $id=0) : bool
+        {
+            if($id==0)
+                $id = $this->ID;
+            $result = $this->db?->updateId(self::$DB_TABLE, $data, $id);
+            $data['id']=$id;
+            $this->debugger?->log('Update', $result,'user Lib', json_encode($data));
+            if($result)
+                $this->sync($id);
+            return $result;
+        }
 
         /*
          * Select User
          */
-        public function select(?int $id) : array
+        public function select(?int $id=0) : array
         {
-            if(!isset($id)) $id = $this->ID;
-            $result = $this->db->selectId(self::$DB_TABLE, $id);
-            $this->debugger?->log('user',boolval($result),'user Lib', json_encode($result));
+            if($id==0)
+                $id = $this->ID;
+            $result = $this->db?->selectId(self::$DB_TABLE, $id);
+            $this->debugger?->log('Select', boolval($result),'user Lib', json_encode($result));
             return $result;
         }
 
@@ -77,77 +107,11 @@
         /*
          * Sync User Session/Database
          */
-        public function sync(int $id) : bool
+        public function sync(int $id) : void
         {
-            $_SESSION['M']['user'] = $this->select();
-        }
-
-
-        /**
-         * Add Block Start Time
-         *
-         * @param string $block
-         * @return mixed
-         */
-        public function start(string $block): mixed
-        {
-            if(isset($this->blocks[$block]['start'])) {
-                $debug_backtrace = debug_backtrace();
-                $caller = array_shift($debug_backtrace);
-                $this->Errors['block_exist'] = 'Block: '.$block.' | '.$caller['file'].' Line '.$caller['line'];
-                $this->debugger?->log("Start > $block",0,'timer', $this->Errors['block_exist']);
-                return $this->Errors['block_exist'];
-
-            }
-            $this->blocks[$block]['start'] = microtime(true);
-            $this->debugger?->log("Start > $block",1,'timer',$this->blocks[$block]['start']);
-            return $this->blocks[$block]['start'];
-        }
-
-        /**
-         * Add Block End Time
-         *
-         * @param ?string $block
-         * @return mixed
-         */
-        public function end(?string $block): mixed
-        {
-            if ($block){
-                if (!isset($this->blocks[$block]['start'])) {
-                    $debug_backtrace = debug_backtrace();
-                    $caller = array_shift($debug_backtrace);
-                    $this->Errors['miss_start'] = 'Block: '.$block.' | '.$caller['file'].' Line '.$caller['line'];
-                    $this->debugger?->log("End > $block",0,'timer', $this->Errors['miss_start']);
-                    return $this->Errors['miss_start'];
-                }
-                $this->blocks[$block]['end']  = microtime(true);
-                $this->blocks[$block]['time'] = round($this->blocks[$block]['end'] - $this->blocks[$block]['start'],4, PHP_ROUND_HALF_UP);
-                $this->debugger?->log("End > $block",1,'timer',$this->blocks[$block]);
-                return $this->blocks[$block]['time'];
-            } else {
-                foreach ($this->blocks as $block => $times) {
-                    $this->blocks[$block]['end']  = microtime(true);
-                    $this->blocks[$block]['time'] = round($this->blocks[$block]['end'] - $this->blocks[$block]['start'],4, PHP_ROUND_HALF_UP);
-                    $this->debugger?->log("End > $block",1,'timer',$this->blocks[$block]);
-                }
-                return $this->blocks['page']['time'];
-            }
-        }
-
-        /**
-         * Get Block(s) Time
-         *
-         * @param string|null $block Null to list all blocks
-         * @return mixed
-         */
-        public function get(string $block=null): mixed
-        {
-            if(!$block)
-                return $this->Errors ?? $this->blocks;
-            if(isset($this->blocks[$block]))
-                return $this->Errors ?? $this->blocks[$block];
-            else
-                return false;
+            if($_SESSION['M']['user']['id']===$id)
+                $_SESSION['M']['user'] = $this->select($id);
+            $this->debugger?->log('Synced', 1,'user Lib', "User id:$id");
         }
 
     }
