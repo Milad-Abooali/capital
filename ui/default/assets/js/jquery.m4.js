@@ -1,5 +1,8 @@
 /**
- * Ajax Call
+ * M4 jQuery Plugins
+ *
+ * 1. m4_Ajax(call,class,cache,global,async,callback)
+ *
  */
 (function ( $ ) {
 
