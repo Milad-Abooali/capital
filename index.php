@@ -84,7 +84,7 @@
     try {
         if(($_GET['M4debugger'] ?? false) || APP['CONFIG']['debugger']==2) {
             $m_global['header'][] = m::css('core/style.css');
-            $m_global['header'][] = m::js('core/jquery-3.6.0.min.js',false);
+            $m_global['header'][] = m::js('core/jquery-3.6.0.min.js',true);
             $m_global['header'][] = m::js('core/json-view.js',false);
         }
     } catch(Exception $e) {

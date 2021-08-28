@@ -1,45 +1,49 @@
 /**
  * M4 jQuery Plugins
  *
- * 1. m4_Ajax(call,class,cache,global,async,callback)
+ * [ Example ]
+ * m4_Example(options);
+ *
+ * [ Ajax Call ]
+ * m4_Ajax(options, callback);
  *
  */
+
 (function ( $ ) {
 
     let appToken = $("meta[name=app-t]").attr('content');
 
     /* Example */
-    $.fn.m4_Example = function( options ) {
+    $.fn.m4_Example = function(options) {
         let settings = $.extend({
             sample: "test",
             callback: null
         }, options );
         this.each(function() {
-            alert(sample);
+            alert(settings.sample);
         });
         return this;
     };
 
-    /* Ajax */
+    /* Ajax Call */
     let AjaxLock;
-    $.fn.m4_Ajax = function( options ) {
+    $.fn.m4_Ajax = function(options, callback=null) {
         let settings = $.extend({
-            call: "test",
-            class: null,
+            call:'test',
+            file:'global',
             cache: false,
             global: true,
             async: true,
-            callback: null
         }, options );
 
-        if ( AjaxLock === (settings.function+'/'+settings.class) ) {
+        if ( AjaxLock === (settings.call+'/'+settings.file) ) {
             console.log('AjaxLock: '+AjaxLock);
             return;
         }
-        AjaxLock = settings.function+'/'+settings.class;
-        let url = (settings.class == null)
+        AjaxLock = settings.call+'/'+settings.file;
+        let url = (settings.file == null)
             ? ("ajax/"+settings.call+"?token="+appToken)
-            : ("ajax/"+settings.call+"/"+settings.class+"?token="+appToken);
+            : ("ajax/"+settings.call+"/"+settings.file+"?token="+appToken);
         $.ajax({
             type: "POST",
             url: url,
@@ -47,7 +51,7 @@
             cache: settings.cache,
             global: settings.global,
             async: settings.async,
-            success: settings.callback,
+            success: callback,
             error: function(request, status, error) {
                 console.log(error);
                 return false;
