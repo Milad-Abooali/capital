@@ -45,39 +45,18 @@
             cache: settings.cache,
             global: settings.global,
             async: settings.async,
-            success: callback,
+            success: settings.callback,
             error: function(request, status, error) {
                 console.log(error);
+                return false;
             }
         });
-        return this;
+        $( document ).ajaxComplete(function( event, xhr, settings ) {
+            setTimeout(function() {
+                AjaxLock = null;
+            }, 50);
+        });
+        return true;
     };
 
 }( jQuery ));
-
-// Ajax Call- Core
-let AjaxLock;
-function ajaxCall (callClass, callFunction, data=null, callback) {
-    if (AjaxLock == callClass+callFunction) {
-        console.log('AjaxLock: '+AjaxLock);
-        return;
-    }
-    AjaxLock = callClass+callFunction;
-    $.ajax({
-        type: "POST",
-        url: "lib/ajax.php?c="+callClass+'&f='+callFunction+"&t=<?= TOKEN ?>",
-        data: data,
-        cache: false,
-        global: true,
-        async: true,
-        success: callback,
-        error: function(request, status, error) {
-            console.log(error);
-        }
-    });
-    $( document ).ajaxComplete(function( event, xhr, settings ) {
-        setTimeout(function() {
-            AjaxLock = null;
-        }, 50);
-    });
-}
