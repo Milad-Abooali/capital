@@ -159,7 +159,7 @@
     /**
      * User
      */
-    $user = (MAHAN['LIB']['user']) ?  new user(($_SESSION['M']['user_id'] ?? 0), $debugger) : null;
+    $user = (MAHAN['LIB']['user']) ?  new user(($_SESSION['M']['user']['id'] ?? 0), $debugger) : null;
 
     /**
      * Routing
