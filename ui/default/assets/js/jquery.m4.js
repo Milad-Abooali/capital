@@ -7,8 +7,9 @@
 
     $.fn.m4_Ajax = function( options ) {
         var settings = $.extend({
-            color: "#fff",
-            backgroundColor: "white"
+            function: "test",
+            class: "global",
+            callback:
         }, options );
         this.each(function() {
             alert(appToken);
