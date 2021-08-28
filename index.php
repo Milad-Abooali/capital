@@ -154,7 +154,7 @@
     /**
      * Echo Ajax Token
      */
-    $m_global['header'][] = '<meta name="app-t" content="'.APP['TOKEN']['ajax'].'">';
+    $m_global['header'][] = '<meta name="app-t" content="'.md5(APP['TOKEN']['ajax'].session_id()).'">';
 
     /**
      * Routing

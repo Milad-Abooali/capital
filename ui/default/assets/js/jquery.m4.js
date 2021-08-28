@@ -8,15 +8,11 @@
     /* Example */
     $.fn.m4_Example = function( options ) {
         let settings = $.extend({
-            call: "test",
-            class: null,
-            cache: false,
-            global: true,
-            async: true,
+            sample: "test",
             callback: null
         }, options );
         this.each(function() {
-            alert(appToken);
+            alert(sample);
         });
         return this;
     };
@@ -25,9 +21,12 @@
     let AjaxLock;
     $.fn.m4_Ajax = function( options ) {
         let settings = $.extend({
-            function: "test",
-            class: "global",
-            callback: null,
+            call: "test",
+            class: null,
+            cache: false,
+            global: true,
+            async: true,
+            callback: null
         }, options );
 
         if ( AjaxLock === (settings.function+'/'+settings.class) ) {
