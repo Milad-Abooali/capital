@@ -1,8 +1,8 @@
 <?php
     /**
      **************************************************************************
-     * global.php
-     * Global - Ajax
+     * sanitize.php
+     * Sanitize Solutions
      **************************************************************************
      * @package          Mahan 4
      * @category         Core library
@@ -11,23 +11,29 @@
      * @license          https://codebox.ir/cbl  CBL v1.0
      **************************************************************************
      * @version          1.0
-     * @since            1.0 First time
+     * @since            4.0 First time
      * @deprecated       -
      * @link             -
-     * @see              \Mahan4\user
+     * @see              -
      **************************************************************************
      */
 
-    namespace Mahan4\AJAX;
-
-    use Mahan4\debugger;
-    use Mahan4\m;
+    namespace Mahan4;
 
     /**
-     * Test Ajax call
+     * Class sanitize
      */
-    function test(?debugger $debugger) : string {
-        $debugger?->log('test','1','AJAX', 'Good Morning Milad');
-        return m::randomString(12);
-    }
+    class sanitize
+    {
 
+        /**
+         * int
+         */
+        public function int(int $id) : ?int
+        {
+            if($_SESSION['M']['user']['id']===$id)
+                $_SESSION['M']['user'] = $this->select($id);
+            $this->debugger?->log('Synced', 1,'user Lib', "User id:$id");
+        }
+
+    }

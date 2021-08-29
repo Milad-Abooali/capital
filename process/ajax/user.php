@@ -1,8 +1,8 @@
 <?php
     /**
      **************************************************************************
-     * global.php
-     * Global - Ajax
+     * user.php
+     * User Manager - Ajax
      **************************************************************************
      * @package          Mahan 4
      * @category         Core library
@@ -11,7 +11,7 @@
      * @license          https://codebox.ir/cbl  CBL v1.0
      **************************************************************************
      * @version          1.0
-     * @since            1.0 First time
+     * @since            4.0 First time
      * @deprecated       -
      * @link             -
      * @see              \Mahan4\user
@@ -22,12 +22,21 @@
 
     use Mahan4\debugger;
     use Mahan4\m;
+    use Mahan4\sanitize;
+    use TypeError;
 
-    /**
-     * Test Ajax call
-     */
-    function test(?debugger $debugger) : string {
+    function add(?debugger $debugger) : string {
+        $data=[];
+        foreach ($_POST as $k=>$v)
+            if(!method_exists('sanitize', $k)) {
+                $data[$k] = $v;
+            } else {
+                try {
+                    $data[$k] = sanitize::$k($v);
+                } catch (TypeError $e) {
+                    echo 'Error: ', $e->getMessage();
+                }
+            }
         $debugger?->log('test','1','AJAX', 'Good Morning Milad');
         return m::randomString(12);
     }
-

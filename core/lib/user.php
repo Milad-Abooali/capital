@@ -11,7 +11,7 @@
      * @license          https://codebox.ir/cbl  CBL v1.0
      **************************************************************************
      * @version          1.0
-     * @since            1.0 First time
+     * @since            4.0 First time
      * @deprecated       -
      * @link             -
      * @see              -
@@ -26,12 +26,6 @@
      */
     class user
     {
-
-        public int $ID=0;
-        public static string $DB_TABLE='users';
-        private string $error='';
-        private ?i_mysql $db;
-        private ?debugger $debugger;
 
         /**
          * user constructor.
@@ -52,7 +46,7 @@
                 $this->ID = $id;
         }
 
-        /*
+        /**
          * Add User
          */
         public function add(array $data) : int
@@ -63,7 +57,7 @@
             return $id;
         }
 
-        /*
+        /**
          * Delete User
          */
         public function delete(int $id) : bool
@@ -77,7 +71,7 @@
             return $result;
         }
 
-        /*
+        /**
          * Update User
          */
         public function update(array $data,?int $id=0) : bool
@@ -92,7 +86,7 @@
             return $result;
         }
 
-        /*
+        /**
          * Select User
          */
         public function select(?int $id=0) : array
@@ -104,7 +98,7 @@
             return $result;
         }
 
-        /*
+        /**
          * Sync User Session/Database
          */
         public function sync(int $id) : void
