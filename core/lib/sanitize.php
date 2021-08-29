@@ -27,13 +27,35 @@
     {
 
         /**
-         * int
+         * Is Float
          */
-        public function int(int $id) : ?int
+        public static function isFloat(mixed $value) :bool
         {
-            if($_SESSION['M']['user']['id']===$id)
-                $_SESSION['M']['user'] = $this->select($id);
-            $this->debugger?->log('Synced', 1,'user Lib', "User id:$id");
+            return ctype_digit($value);
+        }
+
+        /**
+         * Is Integer
+         */
+        public static function isInt(mixed $value) :bool
+        {
+            return is_numeric($value);
+        }
+
+        /**
+         * is Email
+         */
+        public static function isEmail(string $value) :array
+        {
+            return filter_var($value, FILTER_VALIDATE_EMAIL);
+        }
+
+        /**
+         * is URL
+         */
+        public static function isEmail(string $value) :array
+        {
+            return filter_var($value, FILTER_VALIDATE_URL);
         }
 
     }
