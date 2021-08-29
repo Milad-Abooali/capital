@@ -34,7 +34,7 @@
                 try {
                     $data[$k] = sanitize::$k($v);
                 } catch (TypeError $e) {
-                    echo 'Error: ', $e->getMessage();
+                    $debugger?->log('TypeError','1','AJAX', $e);
                 }
             }
         $debugger?->log('test','1','AJAX', 'Good Morning Milad');
