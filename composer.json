@@ -1,6 +1,6 @@
 {
   "autoload": {
-    "classmap": ["core/lib/"]
+    "classmap": ["core/lib/", "plugins/core/"]
   },
   "require": {
     "php": ">=7.0.0",
