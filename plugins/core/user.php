@@ -1,8 +1,8 @@
 <?php
     /**
      **************************************************************************
-     * sanitize.php
-     * Sanitize Solutions
+     * user.php
+     * User Manager - sanitize
      **************************************************************************
      * @package          Mahan 4
      * @category         Core library
@@ -18,12 +18,14 @@
      **************************************************************************
      */
 
-    namespace Mahan4;
+    namespace Mahan4\Plugins;
+
+    use Mahan4\sanitize;
 
     /**
-     * Class sanitize
+     * Class user
      */
-    class sanitize
+    class user extends sanitize
     {
 
         /**
