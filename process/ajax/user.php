@@ -35,10 +35,11 @@
                     $data[$k] = sanitize::$k($v);
                 } catch (Exception $e) {
                     $debugger?->log('TypeError','1','AJAX', $e);
+                    return $e;
                 }
             }
         $debugger?->log('test','1','AJAX', 'Good Morning Milad');
-        return m::randomString(12);
+        return $data;
     }
 
     // password_verify("MySuperSafePassword!", $hashed_password)
