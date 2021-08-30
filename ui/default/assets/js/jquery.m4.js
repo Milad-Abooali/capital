@@ -57,7 +57,7 @@
                 return false;
             }
         });
-        $( document ).ajaxComplete(function( event, xhr, settings ) {
+        $( document ).ajaxComplete(function() {
             setTimeout(function() {
                 AjaxLock = null;
             }, 50);

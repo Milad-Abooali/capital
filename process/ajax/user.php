@@ -26,20 +26,20 @@
     use Mosquitto\Exception;
 
     function add(?debugger $debugger) : string {
-        $data=[];
+        $res['data']=[];
         foreach ($_POST as $k=>$v)
             if(!method_exists('sanitize', $k)) {
                 $data[$k] = $v;
             } else {
                 try {
-                    $data[$k] = sanitize::$k($v);
+                    $res['data'][$k] = sanitize::$k($v);
                 } catch (Exception $e) {
                     $debugger?->log('TypeError','1','AJAX', $e);
-                    return $e;
+                    return $res['e'];
                 }
             }
         $debugger?->log('test','1','AJAX', 'Good Morning Milad');
-        return $data;
+        return $res;
     }
 
     // password_verify("MySuperSafePassword!", $hashed_password)
