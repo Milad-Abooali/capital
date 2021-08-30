@@ -86,4 +86,32 @@
             throw new Exception('City Name is not valid!');
         }
 
+        /**
+         * Password New
+         * @throws Exception
+         */
+        public static function password_new(mixed $value) :string
+        {
+            $uppercase = preg_match('@[A-Z]@', $value);
+            $lowercase = preg_match('@[a-z]@', $value);
+            $number    = preg_match('@[0-9]@', $value);
+            if($uppercase && $lowercase && $number && (strlen($value)>5))
+                return password_hash($value, PASSWORD_DEFAULT);
+            throw new Exception('Password is not strong!');
+        }
+
+        /**
+         * Password Get
+         * @throws Exception
+         */
+        public static function password(mixed $value) :string
+        {
+            $uppercase = preg_match('@[A-Z]@', $value);
+            $lowercase = preg_match('@[a-z]@', $value);
+            $number    = preg_match('@[0-9]@', $value);
+            if($uppercase && $lowercase && $number && (strlen($value)>5))
+                return $value;
+            throw new Exception('Password is not strong!');
+        }
+
     }

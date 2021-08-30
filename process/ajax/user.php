@@ -40,3 +40,5 @@
         $debugger?->log('test','1','AJAX', 'Good Morning Milad');
         return m::randomString(12);
     }
+
+    // password_verify("MySuperSafePassword!", $hashed_password)
