@@ -36,9 +36,11 @@
      * Plugins
      * @throws Exception
      */
-    function plugins(?debugger $debugger) : string {
+    function plugins(?debugger $debugger) {
         if($_REQUEST['plugin'] ?? false)
-            m::include('plugin/'.$_REQUEST['plugin'].'ajax.php');
-        else
-            return false;
+            try {
+                m::include('plugin/'.$_REQUEST['plugin'].'ajax.php');
+            }  catch(Exception $e) {
+                $debugger?->log('Plugins','1','AJAX', $e);
+            }
     }
