@@ -43,7 +43,7 @@ class captcha {
         $this->debugger = $debugger;
         if( !function_exists('gd_info') ) {
             $this->error = 'Required GD library is missing';
-            $this->debugger?->log('Initial','0','user Lib', $this->error);
+            $this->debugger?->log('Error','0','captcha', $this->error);
         } else {
             if (isset($_SESSION['plugins']['captcha']['length']))
                 $this->length = ($_SESSION['plugins']['captcha']['length'] < 10) ? $_SESSION['plugins']['captcha']['length'] : 9;
@@ -125,6 +125,7 @@ class captcha {
         while(strlen($this->config['code']) < $length) {
             $this->config['code'] .= substr($this->config['characters'], mt_rand() % (strlen($this->config['characters'])), 1);
         }
+        $this->debugger?->log('Code','0','captcha', $this->config['code']);
         $_SESSION['plugins']['captcha']['code'] = $this->config['code'];
     }
 
