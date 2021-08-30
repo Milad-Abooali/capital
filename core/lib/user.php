@@ -27,6 +27,12 @@
     class user
     {
 
+        public int $ID=0;
+        public static string $DB_TABLE='users';
+        private string $error='';
+        private ?i_mysql $db;
+        private ?debugger $debugger;
+
         /**
          * user constructor.
          */
