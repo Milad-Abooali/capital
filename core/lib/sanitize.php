@@ -43,6 +43,43 @@
         }
 
         /**
+         * Contain Number
+         */
+        public static function haveNumber(mixed $value) :bool
+        {
+            return preg_match('@[0-9]@', $value);
+        }
+
+        /**
+         * Contain Lower Case Character
+         */
+        public static function haveLowerCase(mixed $value) :bool
+        {
+            return preg_match('@[a-z]@', $value);
+        }
+
+        /**
+         * Contain Upper Case Character
+         */
+        public static function haveUpperCase(mixed $value) :bool
+        {
+            return preg_match('@[A-Z]@', $value);
+        }
+
+        /**
+         * Is Mix
+         * return null when is mix.
+         */
+        public static function isMix(mixed $value, bool $number=false, bool $uppercase=false, bool $lowercase=false) :string
+        {
+            $e = null;
+            if($number) $e .= (self::haveNumber($value)) ? '' : 'Number missing ';
+            if($lowercase) $e .= (self::haveLowerCase($value)) ? '' : 'Lowercase missing ';
+            if($uppercase) $e .= (self::haveUpperCase($value)) ? '' : 'Uppercase missing ';
+            return ($e);
+        }
+
+        /**
          * is Email
          */
         public static function isEmail(string $value) :bool

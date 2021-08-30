@@ -2,7 +2,7 @@
     /**
      **************************************************************************
      * userForm.php
-     * User Manager - Form
+     * User Manager - Sanitize Forms
      **************************************************************************
      * @package          Mahan 4
      * @category         Core library
@@ -44,7 +44,7 @@
          */
         public static function email(mixed $value) :string
         {
-            if(self::isEmail($value) && (strlen($value)>4))
+            if(sanitize::isEmail($value) && (strlen($value)>4))
                 return strtolower($value);
             throw new Exception('Email address is not valid!');
         }
