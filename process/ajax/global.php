@@ -20,6 +20,7 @@
 
     namespace Mahan4\AJAX;
 
+    use Exception;
     use Mahan4\debugger;
     use Mahan4\m;
 
@@ -31,3 +32,13 @@
         return m::randomString(12);
     }
 
+    /**
+     * Plugins
+     * @throws Exception
+     */
+    function plugins(?debugger $debugger) : string {
+        if($_REQUEST['plugin'])
+            m::include('plugin/'.$_REQUEST['plugin'].'ajax.php');
+        else
+            return false;
+    }
