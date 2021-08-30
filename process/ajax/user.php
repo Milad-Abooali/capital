@@ -22,23 +22,27 @@
 
     use Mahan4\debugger;
     use Mahan4\Plugins\userForm;
-    use Mosquitto\Exception;
+    use Exception;
 
     function add(?debugger $debugger) : array {
         $res['data']=[];
-        $res['required'] = userForm::$REQUIRED;
+        $required_fields = userForm::$REQUIRED;
+        foreach($required_fields as $fields)
+            if(!($_POST[$fields] ?? false))
+                $res['e']['required'][] = $fields;
         foreach ($_POST as $k=>$v)
-            if(!method_exists('Mahan4\Plugins\userForm', $k)) {
-                $data[$k] = $v;
-            } else {
-                try {
-                    $res['data'][$k] = userForm::$k($v);
-                    $debugger?->log('Type Check','1','AJAX', $k.' : '.$v);
-                } catch (Exception $e) {
-                    $debugger?->log('Type Check','0','AJAX', $e);
-                    return $res['e'];
+            if($v)
+                if(!method_exists('Mahan4\Plugins\userForm', $k)) {
+                    $data[$k] = $v;
+                } else {
+                    try {
+                        $res['data'][$k] = userForm::$k($v);
+                        $debugger?->log('Type Check','1','AJAX', $k.' : '.$v);
+                    } catch (Exception $e) {
+                        $debugger?->log('Type Check','0','AJAX', $e->getMessage());
+                        $res['e']['validator'][] = $e->getMessage();
+                    }
                 }
-            }
         return $res;
     }
 

@@ -22,7 +22,7 @@
 
     use cscList\cscList;
     use Mahan4\sanitize;
-    use Mosquitto\Exception;
+    use Exception;
 
     /**
      * Class user
@@ -68,7 +68,7 @@
         {
             if(preg_match("/^([a-zA-Z' ]+)$/", $value) && (strlen($value)>2))
                 return ucfirst($value);
-            throw new Exception('First Name is not valid!');
+            throw new Exception('Last Name is not valid!');
         }
 
         /**
