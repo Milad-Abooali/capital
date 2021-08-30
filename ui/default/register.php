@@ -29,11 +29,11 @@ try {
                                     </div>
                                     <label for="first-name">First Name</label>
                                     <div class="mb-3">
-                                        <input id="first-name" name="first-name" type="text" class="form-control" placeholder="First Name">
+                                        <input id="first-name" name="f_name" type="text" class="form-control" placeholder="First Name">
                                     </div>
                                     <label for="last-name">Last Name</label>
                                     <div class="mb-3">
-                                        <input id="last-name" name="last-name" type="text" class="form-control" placeholder="Last Name">
+                                        <input id="last-name" name="l_name" type="text" class="form-control" placeholder="Last Name">
                                     </div>
                                     <label for="country">Country</label>
                                     <div class="mb-3">

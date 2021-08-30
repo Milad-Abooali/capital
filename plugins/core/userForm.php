@@ -1,8 +1,8 @@
 <?php
     /**
      **************************************************************************
-     * user.php
-     * User Manager - sanitize
+     * userForm.php
+     * User Manager - Form
      **************************************************************************
      * @package          Mahan 4
      * @category         Core library
@@ -27,8 +27,16 @@
     /**
      * Class user
      */
-    class user extends sanitize
+    class userForm
     {
+
+        static array $REQUIRED = [
+            'email',
+            'f_name',
+            'l_name',
+            'country',
+            'city'
+        ];
 
         /**
          * Email

@@ -2,7 +2,7 @@
  * Guests Pages
  */
 
-    $('body').on('submit','#form-register', function(e)
+    $('body').on('submit','form#form-register', function(e)
     {
         e.preventDefault();
         let ajaxOptions = {

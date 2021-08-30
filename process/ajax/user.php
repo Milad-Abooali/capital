@@ -1,7 +1,7 @@
 <?php
     /**
      **************************************************************************
-     * user.php
+     * userForm.php
      * User Manager - Ajax
      **************************************************************************
      * @package          Mahan 4
@@ -21,24 +21,24 @@
     namespace Mahan4\AJAX;
 
     use Mahan4\debugger;
-    use Mahan4\m;
-    use Mahan4\sanitize;
+    use Mahan4\Plugins\userForm;
     use Mosquitto\Exception;
 
     function add(?debugger $debugger) : array {
         $res['data']=[];
+        $res['required'] = userForm::$REQUIRED;
         foreach ($_POST as $k=>$v)
-            if(!method_exists('sanitize', $k)) {
+            if(!method_exists('Mahan4\Plugins\userForm', $k)) {
                 $data[$k] = $v;
             } else {
                 try {
-                    $res['data'][$k] = sanitize::$k($v);
+                    $res['data'][$k] = userForm::$k($v);
+                    $debugger?->log('Type Check','1','AJAX', $k.' : '.$v);
                 } catch (Exception $e) {
-                    $debugger?->log('TypeError','1','AJAX', $e);
+                    $debugger?->log('Type Check','0','AJAX', $e);
                     return $res['e'];
                 }
             }
-        $debugger?->log('test','1','AJAX', 'Good Morning Milad');
         return $res;
     }
 

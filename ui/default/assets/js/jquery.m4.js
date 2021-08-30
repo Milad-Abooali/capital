@@ -28,6 +28,7 @@
     /* Ajax Call */
     let AjaxLock;
     $.fn.m4_Ajax = function(options, callback=null) {
+        let thisID = $(this).attr('id');
         let settings = $.extend({
             call:'test',
             file:'global',
@@ -39,8 +40,9 @@
             processData: false,
             contentType: false
         }, options );
+        console.log(thisID);
         if(settings.data===null && settings.type==='form')
-            settings.data = $(this).serialize();
+            settings.data = new FormData(document.getElementById(thisID));
         if ( AjaxLock === (settings.call+'/'+settings.file) ) {
             console.log('AjaxLock: '+AjaxLock);
             return;
