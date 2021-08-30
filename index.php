@@ -66,6 +66,8 @@
     mb_http_output('utf-8');
     mb_language('uni');
     mb_regex_encoding('utf-8');
+    define('APP_URL',APP['WS']['protocol'] . APP['WS']['url']);
+    define('APP_URL_PORT',APP['WS']['protocol'] . APP['WS']['url'] . ':' . APP['WS']['port']);
 
     /**
      * Autoloader - composer

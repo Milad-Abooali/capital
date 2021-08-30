@@ -1,6 +1,12 @@
 {
   "autoload": {
-    "classmap": ["core/lib/", "plugins/core/"]
+    "classmap": [
+      "core/lib/",
+      "plugins/core/"
+    ],
+    "psr-4": {
+      "Mahan4\\Plugins\\": "plugins/"
+    }
   },
   "require": {
     "php": ">=7.0.0",
