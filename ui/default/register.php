@@ -22,7 +22,7 @@ try {
                                 <p class="mb-0">Enter your detail to register.</p>
                             </div>
                             <div class="card-body">
-                                <form id="register">
+                                <form id="form-register" name="register">
                                     <label for="email">Email</label>
                                     <div class="mb-3">
                                         <input id="email" name="email" type="email" class="form-control" placeholder="Email">
@@ -48,7 +48,7 @@ try {
                                         <input id="city" name="city" type="text" class="form-control" placeholder="City">
                                     </div>
                                     <div class="text-center">
-                                        <button type="button" class="btn bg-gradient-info w-100 mt-4 mb-0">Sign up</button>
+                                        <button type="submit" class="btn bg-gradient-info w-100 mt-4 mb-0">Sign up</button>
                                     </div>
                                 </form>
                                 <div class="cb-hide alert alert-success text-light" id="alert-register">

@@ -25,7 +25,7 @@
     use Mahan4\sanitize;
     use Mosquitto\Exception;
 
-    function add(?debugger $debugger) : string {
+    function add(?debugger $debugger) : array {
         $res['data']=[];
         foreach ($_POST as $k=>$v)
             if(!method_exists('sanitize', $k)) {

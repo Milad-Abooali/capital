@@ -31,11 +31,16 @@
         let settings = $.extend({
             call:'test',
             file:'global',
+            type:'',
+            data:null,
             cache: false,
             global: true,
             async: true,
+            processData: false,
+            contentType: false
         }, options );
-
+        if(settings.data===null && settings.type==='form')
+            settings.data = $(this).serialize();
         if ( AjaxLock === (settings.call+'/'+settings.file) ) {
             console.log('AjaxLock: '+AjaxLock);
             return;
@@ -47,11 +52,14 @@
         $.ajax({
             type: "POST",
             url: url,
-            data: this,
+            data: settings.data,
             cache: settings.cache,
             global: settings.global,
             async: settings.async,
+            processData: settings.processData,
+            contentType: settings.contentType,
             success: callback,
+
             error: function(request, status, error) {
                 console.log(error);
                 return false;
