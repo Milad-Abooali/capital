@@ -23,7 +23,7 @@
     use Mahan4\debugger;
     use Mahan4\m;
     use Mahan4\sanitize;
-    use TypeError;
+    use Mosquitto\Exception;
 
     function add(?debugger $debugger) : string {
         $data=[];
@@ -33,7 +33,7 @@
             } else {
                 try {
                     $data[$k] = sanitize::$k($v);
-                } catch (TypeError $e) {
+                } catch (Exception $e) {
                     $debugger?->log('TypeError','1','AJAX', $e);
                 }
             }

@@ -21,6 +21,7 @@
     namespace Mahan4\Plugins;
 
     use Mahan4\sanitize;
+    use Mosquitto\Exception;
 
     /**
      * Class user
@@ -29,27 +30,36 @@
     {
 
         /**
-         * Is Float
+         * Email
+         * @throws Exception
          */
-        public static function isFloat(mixed $value) :bool
+        public static function email(mixed $value) :string
         {
-            return ctype_digit($value);
+            if(self::isEmail($value))
+                return strtolower($value);
+            throw new Exception('Email address is not valid!');
         }
 
         /**
-         * Is Integer
+         * First Name
+         * @throws Exception
          */
-        public static function isInt(mixed $value) :bool
+        public static function f_name(mixed $value) :string
         {
-            return is_numeric($value);
+            if(preg_match("/^([a-zA-Z' ]+)$/", $value))
+                return ucfirst($value);
+            throw new Exception('First Name is not valid!');
         }
 
         /**
-         * is Email
+         * Last Name
+         * @throws Exception
          */
-        public static function isEmail(string $value) :array
+        public static function l_name(mixed $value) :string
         {
-            return filter_var($value, FILTER_VALIDATE_EMAIL);
+            if(preg_match("/^([a-zA-Z' ]+)$/", $value))
+                return ucfirst($value);
+            throw new Exception('First Name is not valid!');
         }
 
     }
