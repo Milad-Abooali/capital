@@ -5,7 +5,7 @@
       "plugins/core/"
     ],
     "psr-4": {
-      "Mahan4\\Plugins\\": "plugins/"
+      "Plugins\\": "plugins/"
     }
   },
   "require": {
