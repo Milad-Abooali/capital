@@ -23,6 +23,7 @@
     use Exception;
     use Mahan4\debugger;
     use Mahan4\m;
+    use Plugins\captcha\captcha;
 
     /**
      * Test Ajax call
@@ -37,10 +38,25 @@
      * @throws Exception
      */
     function plugins(?debugger $debugger) {
-        if($_REQUEST['plugin'] ?? false)
+        if($_REQUEST['plugin']) {
+            $output = array();
             try {
-                m::include('plugin/'.$_REQUEST['plugin'].'ajax.php');
+                m::include('plugins/'.$_REQUEST['plugin'].'/ajax.php');
+                $debugger?->log('Plugins','1','AJAX', $_REQUEST['plugin'].' is loaded.');
             }  catch(Exception $e) {
                 $debugger?->log('Plugins','1','AJAX', $e);
             }
+            if ($_REQUEST['call'] ?? false) {
+                $function = "Plugins\\".$_REQUEST['plugin']."\\".$_REQUEST['call'];
+                return (function_exists($function))
+                    ? $function($debugger)
+                    : "Function '$function' is missing!";
+            } else {
+                return false;
+            }
+        } else {
+            $debugger?->log('Plugins','1','AJAX', 'Plugin is missing');
+            return false;
+        }
+
     }

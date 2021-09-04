@@ -20,7 +20,10 @@
 
 namespace Plugins\captcha;
 
-use Exception;
 use Mahan4\debugger;
+use Mahan4\m;
 
-echo 1;
+function test(?debugger $debugger) : string {
+    $debugger?->log('Captcha','1','AJAX', 'Test Loaded');
+    return 99999999;
+}
