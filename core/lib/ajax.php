@@ -30,6 +30,7 @@
         private ?debugger $debugger;
         private ?string $ajax_token;
         private bool $crude;
+        private bool $crude_debug;
         private bool $csrf;
 
         /**
@@ -41,6 +42,7 @@
             $this->debugger = $debugger;
             $this->ajax_token = $_GET['token'] ?? null;
             $this->crude = $_GET['crude'] ?? false;
+            $this->crude_debug = $_GET['crude_debug'] ?? false;
             $this->csrf = m::csrf() && $this->ajax_token==md5(APP['TOKEN']['ajax'].session_id());
         }
 
