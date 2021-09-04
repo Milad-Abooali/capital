@@ -51,7 +51,7 @@
         AjaxLock = settings.call+'/'+settings.file;
         let url = (settings.file == null)
             ? ("ajax/"+settings.call+"?token="+appToken)
-            : ("ajax/"+settings.call+"/"+settings.file+"?token="+appToken+"&crud="+crud);
+            : ("ajax/"+settings.call+"/"+settings.file+"?token="+appToken+"&crud="+settings.crud);
         $.ajax({
             type: "POST",
             url: url,
