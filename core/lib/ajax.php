@@ -66,8 +66,13 @@
             } else {
                 $output->error = 'CSRF Token is not Valid';
             }
+
             if($this->crude) {
                 echo $output->res ?? $output->error;
+            } else if($this->crude_debug) {
+                $output->debugger = $this->debugger?->get();
+                $output->res = "CRUD_DEBUG overwritten";
+                echo json_encode($output);
             } else {
                 $output->debugger = $this->debugger?->get();
                 echo json_encode($output);
