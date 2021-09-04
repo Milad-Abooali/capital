@@ -117,9 +117,9 @@ class captcha {
     }
 
     /**
-     * Generate Code
+     * New Code
      */
-    private function genCode() : void
+    public function new() : void
     {
         $length = mt_rand($this->config['min_length'], $this->config['max_length']);
         while(strlen($this->config['code']) < $length) {
@@ -152,11 +152,10 @@ class captcha {
     }
 
     /**
-     * Generate Image
+     * Render Captcha
      */
-    public function new() : void
+    public function render() : void
     {
-        $this->genCode();
 
         $background = $this->config['backgrounds'][mt_rand(0, count($this->config['backgrounds']) -1)];
         list($bg_width, $bg_height, $bg_type, $bg_attr) = getimagesize($background);
