@@ -32,6 +32,7 @@
         let settings = $.extend({
             call:'test',
             file:'global',
+            crud:0,
             type:'',
             data:null,
             cache: false,
@@ -50,7 +51,7 @@
         AjaxLock = settings.call+'/'+settings.file;
         let url = (settings.file == null)
             ? ("ajax/"+settings.call+"?token="+appToken)
-            : ("ajax/"+settings.call+"/"+settings.file+"?token="+appToken);
+            : ("ajax/"+settings.call+"/"+settings.file+"?token="+appToken+"&crud="+crud);
         $.ajax({
             type: "POST",
             url: url,
