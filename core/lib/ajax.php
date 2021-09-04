@@ -28,11 +28,9 @@
     class ajax
     {
         private ?debugger $debugger;
-        public $TOKEN;
-        private $mahan_token;
-        private $ajax_token;
-        private $csrf;
-        private $CLASS;
+        private ?string $ajax_token;
+        private bool $crude;
+        private bool $csrf;
 
         /**
          * Ajax constructor.
@@ -41,7 +39,8 @@
         function __construct(?debugger $debugger=null)
         {
             $this->debugger = $debugger;
-            $this->ajax_token = $_REQUEST['token'] ?? null;
+            $this->ajax_token = $_GET['token'] ?? null;
+            $this->crude = $_GET['crude'] ?? false;
             $this->csrf = m::csrf() && $this->ajax_token==md5(APP['TOKEN']['ajax'].session_id());
         }
 
@@ -65,8 +64,12 @@
             } else {
                 $output->error = 'CSRF Token is not Valid';
             }
-            $output->debugger = $this->debugger?->get();
-            echo json_encode($output);
+            if($this->crude) {
+                $output->debugger = $this->debugger?->get();
+                echo json_encode($output);
+            } else {
+                echo $output->res ?? $output->error;
+            }
         }
 
     }
