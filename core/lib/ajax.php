@@ -65,10 +65,10 @@
                 $output->error = 'CSRF Token is not Valid';
             }
             if($this->crude) {
+                echo $output->res ?? $output->error;
+            } else {
                 $output->debugger = $this->debugger?->get();
                 echo json_encode($output);
-            } else {
-                echo $output->res ?? $output->error;
             }
         }
 
