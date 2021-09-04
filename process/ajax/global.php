@@ -41,7 +41,7 @@
         if($_REQUEST['plugin']) {
             if(!isset(APP['PLUGIN'][$_REQUEST['plugin']]))
                 return "Please install plugin first!";
-            else if(isset(APP['PLUGIN'][$_REQUEST['plugin']])==0)
+            else if(APP['PLUGIN'][$_REQUEST['plugin']]==0)
                 return "Plugin is disabled!";
             $output = array();
             try {
