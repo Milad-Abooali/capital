@@ -128,7 +128,6 @@ class captcha {
         }
         $this->debugger?->log('Code','0','captcha', $this->config['code']);
         $_SESSION['plugins']['captcha']['code'] = $this->config['code'];
-        self::__construct();
     }
 
     /**
