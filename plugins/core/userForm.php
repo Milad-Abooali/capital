@@ -116,4 +116,15 @@
             throw new Exception('Password is not strong!');
         }
 
+        /**
+         * Password Get
+         * @throws Exception
+         */
+        public static function captcha(mixed $value) :string
+        {
+            if(APP['PLUGIN']['captcha'] && strtolower($value)===strtolower($_SESSION['plugins']['captcha']['code']))
+                return true;
+            throw new Exception('Captcha is not valid!');
+        }
+
     }
