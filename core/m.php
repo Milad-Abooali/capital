@@ -105,7 +105,7 @@
          */
         public static function js(string $path, ?string $defer='defer'): string
         {
-            return "<script src='$path'$defer></script>";
+            return "<script src='$path' $defer></script>";
         }
 
         /**

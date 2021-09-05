@@ -49,10 +49,9 @@ try {
                                     </div>
 
                                     <label for="city">Captcha</label>
+                                    <div class="mb-3 plugin-captcha-img"></div>
                                     <div class="mb-3">
-                                        <img src="">                                    </div>
-                                    <div class="mb-3">
-                                        <input id="city" name="city" type="text" class="form-control" placeholder="City">
+                                        <input id="captcha" name="captcha" type="text" class="form-control" placeholder="Captcha">
                                     </div>
 
                                     <div class="text-center">

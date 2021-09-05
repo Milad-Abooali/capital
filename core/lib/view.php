@@ -77,8 +77,8 @@
             if($this->Plugins)
                 foreach ($this->Plugins as $plugin) {
                     $this->debugger?->log('initial','1','Plugins', $plugin);
-                    $m_global['header'][] = m::css("plugins/$plugin/style.css");
-                    $m_global['header'][] = m::js("plugins/$plugin/script.js",true);
+                    $this->Global_DATA ['header'][] = m::css("assets/plugins/$plugin/style.css");
+                    $this->Global_DATA ['footer'][] = m::js("assets/plugins/$plugin/script.js");
                 }
             if(!APP['CONFIG']['maintenance'] && APP['CONFIG']['cache'] && $this->view['cache']) {
                 $file_name = str_replace('/','_', $_SERVER['REDIRECT_URL'] ?? '//');

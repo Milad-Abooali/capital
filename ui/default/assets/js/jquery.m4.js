@@ -32,6 +32,8 @@
         let settings = $.extend({
             call:'test',
             file:'global',
+            plugin:0,
+            plugin_call:0,
             crud:0,
             type:'',
             data:null,
@@ -49,9 +51,6 @@
             return;
         }
         AjaxLock = settings.call+'/'+settings.file;
-        let url = (settings.file == null)
-            ? ("ajax/"+settings.call+"?token="+appToken)
-            : ("ajax/"+settings.call+"/"+settings.file+"?token="+appToken+"&crud="+settings.crud);
         $.ajax({
             type: "POST",
             url: url,
@@ -68,6 +67,13 @@
                 return false;
             }
         });
+        let url = (settings.file == null)
+            ? ("ajax/"+settings.call+"?token="+appToken)
+            : ("ajax/"+settings.call+"/"+settings.file
+                +"?token="+appToken
+                +"&crud="+settings.crud
+                +"&plugin="+settings.plugin
+                +"&call="+settings.plugin_call);
         $( document ).ajaxComplete(function() {
             setTimeout(function() {
                 AjaxLock = null;

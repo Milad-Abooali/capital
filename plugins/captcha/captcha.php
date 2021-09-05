@@ -49,7 +49,7 @@ class captcha {
                 $this->length = ($_SESSION['plugins']['captcha']['length'] < 10) ? $_SESSION['plugins']['captcha']['length'] : 9;
             $rate = $this->length/3;
             $this->config = array(
-                'code' => '',
+                'code' => $_SESSION['plugins']['captcha']['code'] ?? null,
                 'min_length' => 3+$rate,
                 'max_length' => 4+$rate,
                 'backgrounds' => array(
@@ -121,12 +121,13 @@ class captcha {
      */
     public function new() : void
     {
+        $this->config['code'] = '';
         $length = mt_rand($this->config['min_length'], $this->config['max_length']);
         while(strlen($this->config['code']) < $length) {
             $characters = str_shuffle($this->config['characters']);
             $this->config['code'] .= substr($this->config['characters'], mt_rand() % (strlen($characters)), 1);
         }
-        $this->debugger?->log('Code','0','captcha', $this->config['code']);
+        $this->debugger?->log('Captcha','1','Plugins', $this->config['code']);
         $_SESSION['plugins']['captcha']['code'] = $this->config['code'];
     }
 
