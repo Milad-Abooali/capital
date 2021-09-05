@@ -34,7 +34,7 @@ class captcha {
     private string $error='';
     private ?debugger $debugger;
     private int $length=1;
-    private array $config;
+    public array $config;
 
     /**
      * captcha constructor.
@@ -49,7 +49,7 @@ class captcha {
                 $this->length = ($_SESSION['plugins']['captcha']['length'] < 10) ? $_SESSION['plugins']['captcha']['length'] : 9;
             $rate = $this->length/3;
             $this->config = array(
-                'code' => '',
+                'code' => $_SESSION['plugins']['captcha']['code'],
                 'min_length' => 2+$rate,
                 'max_length' => 3+$rate,
                 'backgrounds' => array(

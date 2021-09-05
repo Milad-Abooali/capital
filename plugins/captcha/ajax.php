@@ -28,7 +28,8 @@ function test(?debugger $debugger) : string {
     return 99999999;
 }
 
-function render(?debugger $debugger) : void {
+function render(?debugger $debugger)  {
     $captcha = new captcha();
-    $captcha->render();
+    // $captcha->render();
+    m::print($captcha->config);
 }
