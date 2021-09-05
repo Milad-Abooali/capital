@@ -49,7 +49,7 @@ class captcha {
                 $this->length = ($_SESSION['plugins']['captcha']['length'] < 10) ? $_SESSION['plugins']['captcha']['length'] : 9;
             $rate = $this->length/3;
             $this->config = array(
-                'code' => $_SESSION['plugins']['captcha']['code'] ?? null,
+                'code' => '',
                 'min_length' => 3+$rate,
                 'max_length' => 4+$rate,
                 'backgrounds' => array(
