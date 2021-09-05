@@ -246,10 +246,11 @@
         public static function plugin(string $plugin) : object
         {
             global $view;
+            global $debugger;
             if(APP['PLUGIN']["captcha"]) {
                 $view->Plugins[] = $plugin;
                 $class= "\Plugins\captcha\\$plugin";
-                return new $class();
+                return new $class($debugger);
             }
         }
 

@@ -86,7 +86,7 @@ class captcha {
                     $this->font_path . 'font32.ttf',
                     $this->font_path . 'font34.ttf'
                 ),
-                'characters' => 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnpqrstuvwxyz23456789',
+                'characters' => 'ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmknpqrstuvwxyz23456789',
                 'min_font_size' => 9-$rate,
                 'max_font_size' => 25+$rate,
                 'color' => '#'.rand(1,9).rand(1,9).rand(1,9),

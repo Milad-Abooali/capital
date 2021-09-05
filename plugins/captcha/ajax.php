@@ -28,8 +28,13 @@ function test(?debugger $debugger) : string {
     return 99999999;
 }
 
-function render(?debugger $debugger)  {
-    $captcha = new captcha();
+function reRender(?debugger $debugger)  {
+    $captcha = new captcha($debugger);
     $captcha->new();
+    $captcha->render();
+}
+
+function render(?debugger $debugger)  {
+    $captcha = new captcha($debugger);
     $captcha->render();
 }
