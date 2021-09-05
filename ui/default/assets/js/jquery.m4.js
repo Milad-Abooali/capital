@@ -43,7 +43,7 @@
             processData: false,
             contentType: false
         }, options );
-        console.log(thisID);
+
         if(settings.data===null && settings.type==='form')
             settings.data = new FormData(document.getElementById(thisID));
         if ( AjaxLock === (settings.call+'/'+settings.file) ) {
@@ -51,6 +51,14 @@
             return;
         }
         AjaxLock = settings.call+'/'+settings.file;
+
+        let url = (settings.file == null) ? ("ajax/"+settings.call) : ("ajax/"+settings.call+"/"+settings.file);
+        url += "?token="+appToken;
+
+        if(settings.crud) url += "&crud="+settings.crud;
+        if(settings.plugin) url += "&plugin="+settings.plugin;
+        if(settings.plugin_call) url += "&call="+settings.plugin_call;
+
         $.ajax({
             type: "POST",
             url: url,
@@ -67,13 +75,7 @@
                 return false;
             }
         });
-        let url = (settings.file == null)
-            ? ("ajax/"+settings.call+"?token="+appToken)
-            : ("ajax/"+settings.call+"/"+settings.file
-                +"?token="+appToken
-                +"&crud="+settings.crud
-                +"&plugin="+settings.plugin
-                +"&call="+settings.plugin_call);
+
         $( document ).ajaxComplete(function() {
             setTimeout(function() {
                 AjaxLock = null;
