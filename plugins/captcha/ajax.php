@@ -27,3 +27,8 @@ function test(?debugger $debugger) : string {
     $debugger?->log('Captcha','1','AJAX', 'Test Loaded');
     return 99999999;
 }
+
+function render(?debugger $debugger) : void {
+    $captcha = new captcha();
+    $captcha->render();
+}

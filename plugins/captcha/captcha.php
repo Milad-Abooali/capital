@@ -29,8 +29,8 @@ use Mahan4\debugger;
  */
 class captcha {
 
-    private string $bg_path = APP["WS"]['root'].'plugins/backgrounds/';
-    private string $font_path =  APP["WS"]['root'].'/fonts/';
+    private string $bg_path = 'plugins/captcha/backgrounds/';
+    private string $font_path =  'plugins/captcha/fonts/';
     private string $error='';
     private ?debugger $debugger;
     private int $length=1;
