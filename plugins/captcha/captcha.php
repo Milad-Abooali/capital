@@ -93,7 +93,7 @@ class captcha {
                 'angle_min' => 0,
                 'angle_max' => 120,
                 'shadow' => true,
-                'shadow_color' => '#fff',
+                'shadow_color' => '#FFF',
                 'shadow_offset_x' => -1,
                 'shadow_offset_y' => 1
             );
