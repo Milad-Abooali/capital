@@ -39,7 +39,7 @@ class captcha {
     /**
      * captcha constructor.
      */
-    function __construct(int $id, debugger|null $debugger=null) {
+    function __construct(?debugger $debugger=null) {
         $this->debugger = $debugger;
         if( !function_exists('gd_info') ) {
             $this->error = 'Required GD library is missing';

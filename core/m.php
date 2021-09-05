@@ -240,5 +240,17 @@
             return ($ip) ?? '';
         }
 
+        /**
+         * Load Plugin
+         */
+        public static function plugin(string $plugin) : object
+        {
+            global $view;
+            if(APP['PLUGIN']["captcha"]) {
+                $view->Plugins[] = $plugin;
+                $class= "\Plugins\captcha\\$plugin";
+                return new $class();
+            }
+        }
 
     }

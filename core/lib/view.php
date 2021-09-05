@@ -35,7 +35,7 @@
         private ?minifier $minifier=null;
         private $Global_DATA;
         private $Page_DATA;
-        private array $Plugins=[];
+        public array $Plugins=[];
 
         /**
          * View constructor.
