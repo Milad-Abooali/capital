@@ -34,7 +34,7 @@ class captcha {
     private string $error='';
     private ?debugger $debugger;
     private int $length=1;
-    public array $config;
+    private array $config;
 
     /**
      * captcha constructor.
@@ -49,9 +49,9 @@ class captcha {
                 $this->length = ($_SESSION['plugins']['captcha']['length'] < 10) ? $_SESSION['plugins']['captcha']['length'] : 9;
             $rate = $this->length/3;
             $this->config = array(
-                'code' => $_SESSION['plugins']['captcha']['code'],
-                'min_length' => 2+$rate,
-                'max_length' => 3+$rate,
+                'code' => $_SESSION['plugins']['captcha']['code'] ?? null,
+                'min_length' => 3+$rate,
+                'max_length' => 4+$rate,
                 'backgrounds' => array(
                     $this->bg_path.$this->length.'.png',
                     $this->bg_path.(($this->length == 1) ? 2 : ($this->length-1)).'.png',
@@ -127,6 +127,7 @@ class captcha {
         }
         $this->debugger?->log('Code','0','captcha', $this->config['code']);
         $_SESSION['plugins']['captcha']['code'] = $this->config['code'];
+        self::__construct();
     }
 
     /**

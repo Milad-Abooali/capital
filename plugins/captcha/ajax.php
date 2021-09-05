@@ -30,6 +30,6 @@ function test(?debugger $debugger) : string {
 
 function render(?debugger $debugger)  {
     $captcha = new captcha();
-    // $captcha->render();
-    m::print($captcha->config);
+    $captcha->new();
+    $captcha->render();
 }
