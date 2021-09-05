@@ -49,7 +49,7 @@ try {
                                     </div>
 
                                     <label for="city">Captcha</label>
-                                    <div class="mb-3 plugin-captcha-img"></div>
+                                    <div class="mb-3 plugin-captcha"></div>
                                     <div class="mb-3">
                                         <input id="captcha" name="captcha" type="text" class="form-control" placeholder="Captcha">
                                     </div>
