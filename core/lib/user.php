@@ -27,7 +27,7 @@
     class user
     {
 
-        public int $ID=0;
+        public int $ID;
         public static string $DB_TABLE='users';
         private string $error='';
         private ?i_mysql $db;
@@ -36,7 +36,7 @@
         /**
          * user constructor.
          */
-        function __construct(int $id, debugger|null $debugger=null) {
+        function __construct(int $id=0, debugger|null $debugger=null) {
             $this->debugger = $debugger;
             global $db_main;
             $this->db = $db_main;
@@ -59,7 +59,8 @@
         {
             $id = $this->db?->insert(self::$DB_TABLE, $data);
             $this->debugger?->log('Add', boolval($id),'user Lib', json_encode($data));
-            $this->sync($id);
+            if($id)
+                $this->sync($id);
             return $id;
         }
 
@@ -68,7 +69,7 @@
          */
         public function delete(int $id) : bool
         {
-            if($_SESSION['M']['user']['id']===$id){
+            if($_SESSION['M4']['user']['id']===$id){
                 $this->debugger?->log('Delete', 0,'user Lib', "Self delete, user id:$id");
                 return false;
             }
@@ -109,8 +110,8 @@
          */
         public function sync(int $id) : void
         {
-            if($_SESSION['M']['user']['id']===$id)
-                $_SESSION['M']['user'] = $this->select($id);
+            if(isset($_SESSION['M4']['user']) && $_SESSION['M4']['user']['id']===$id)
+                $_SESSION['M4']['user'] = $this->select($id);
             $this->debugger?->log('Synced', 1,'user Lib', "User id:$id");
         }
 

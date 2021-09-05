@@ -47,7 +47,14 @@ try {
                                     <div class="mb-3">
                                         <input id="city" name="city" type="text" class="form-control" placeholder="City">
                                     </div>
-
+                                    <label for="city">Password</label>
+                                    <div class="mb-3">
+                                        <input id="password" name="password" type="password" class="form-control" placeholder="Password">
+                                    </div>
+                                    <label for="city">Retype Password</label>
+                                    <div class="mb-3">
+                                        <input id="re-password" name="password"  type="password" class="form-control" placeholder="Password">
+                                    </div>
                                     <label for="city">Captcha</label>
                                     <div class="mb-3 plugin-captcha">
                                         <img alt="captcha" src="">

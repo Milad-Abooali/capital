@@ -29,6 +29,13 @@
      */
     class userForm
     {
+        static array $COLS = [
+            'email',
+            'f_name',
+            'l_name',
+            'country',
+            'city'
+        ];
 
         static array $REQUIRED = [
             'email',
@@ -117,7 +124,7 @@
         }
 
         /**
-         * Password Get
+         * Captcha Plugin
          * @throws Exception
          */
         public static function captcha(mixed $value) :string
