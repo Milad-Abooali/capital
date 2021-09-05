@@ -51,7 +51,7 @@ try {
                                     <label for="city">Captcha</label>
                                     <div class="mb-3 plugin-captcha">
                                         <img alt="captcha" src="">
-                                        <button class="btn recaptcha"><i class="fas fa-redo-alt"></i> </button>
+                                        <button type="button" class="btn recaptcha"><i class="fas fa-redo-alt"></i> </button>
                                     </div>
                                     <div class="mb-3">
                                         <input id="captcha" name="captcha" type="text" class="form-control" placeholder="Captcha">
