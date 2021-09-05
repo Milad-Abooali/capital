@@ -123,7 +123,8 @@ class captcha {
     {
         $length = mt_rand($this->config['min_length'], $this->config['max_length']);
         while(strlen($this->config['code']) < $length) {
-            $this->config['code'] .= substr($this->config['characters'], mt_rand() % (strlen($this->config['characters'])), 1);
+            $characters = str_shuffle($this->config['characters']);
+            $this->config['code'] .= substr($this->config['characters'], mt_rand() % (strlen($characters)), 1);
         }
         $this->debugger?->log('Code','0','captcha', $this->config['code']);
         $_SESSION['plugins']['captcha']['code'] = $this->config['code'];
