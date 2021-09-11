@@ -94,13 +94,25 @@
         }
 
         /**
-         * Select User
+         * Select User By Id
          */
-        public function select(?int $id=0) : array
+        public function selectId(?int $id=0) : array
         {
             if($id==0)
                 $id = $this->ID;
             $result = $this->db?->selectId(self::$DB_TABLE, $id);
+            $this->debugger?->log('Select', boolval($result),'user Lib', json_encode($result));
+            return $result;
+        }
+
+
+        /**
+         * Select User By Id
+         */
+        public function selectEmail(string $email) : ?array
+        {
+            $where = "email='$email'";
+            $result = $this->db?->selectRow(self::$DB_TABLE, $where);
             $this->debugger?->log('Select', boolval($result),'user Lib', json_encode($result));
             return $result;
         }
