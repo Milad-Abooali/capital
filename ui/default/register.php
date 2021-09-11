@@ -111,6 +111,7 @@ try {
 <script src="<?= ASSETS_PATH ?>js/bootstrap.min.js"></script>
 <script src="<?= ASSETS_PATH ?>js/perfect-scrollbar.min.js"></script>
 <script src="<?= ASSETS_PATH ?>js/smooth-scrollbar.min.js"></script>
+<script src="<?= ASSETS_PATH ?>js/toastr.js"></script>
 <script>
     var win = navigator.platform.indexOf('Win') > -1;
     if (win && document.querySelector('#sidenav-scrollbar')) {
