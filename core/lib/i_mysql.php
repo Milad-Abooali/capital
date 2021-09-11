@@ -139,7 +139,7 @@
          * @param  bool $insert Must return inserted id
          * @return bool|mysqli_result Return mySQL Object or false on error
          */
-        public function Run(string $sql, bool $insert=false): mysqli_result|bool
+        public function Run(string $sql, bool $insert=false): mysqli_result|int|bool
         {
             $result = mysqli_query($this->Link, $sql) ?? false;
             if(!$result) {
