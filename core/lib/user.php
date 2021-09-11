@@ -107,9 +107,9 @@
 
 
         /**
-         * Select User By Id
+         * Select User By Email
          */
-        public function selectEmail(string $email) : ?array
+        public function selectEmail(string $email) : array|bool
         {
             $where = "email='$email'";
             $result = $this->db?->selectRow(self::$DB_TABLE, $where);

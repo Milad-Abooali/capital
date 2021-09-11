@@ -29,7 +29,7 @@
         $res=$data=$insert=[];
         foreach(userForm::$REQUIRED as $fields)
             if(!($_POST[$fields] ?? false))
-                $res['e']['required'][] = $fields;
+                $res['e'] = $fields;
         foreach ($_POST as $k=>$v)
             if($v)
                 if(!method_exists('Mahan4\Plugins\userForm', $k)) {
@@ -40,7 +40,7 @@
                         $debugger?->log('Type Check','1','AJAX', $k.' : '.$v);
                     } catch (Exception $e) {
                         $debugger?->log('Type Check','0','AJAX', $e->getMessage());
-                        $res['e']['validator'][] = $e->getMessage();
+                        $res['e'] = $e->getMessage();
                     }
                 }
         global $user;
