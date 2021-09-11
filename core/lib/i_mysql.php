@@ -149,7 +149,7 @@
                     'result' =>  $error
                 );
                 $this->debugger?->log("Query",0,'MySQL', end($this->Logs));
-                return $error;
+                return false;
             }
             if ($insert) {
                 $result = mysqli_insert_id($this->Link);
