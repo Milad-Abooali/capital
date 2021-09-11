@@ -11,7 +11,7 @@
             type:'form'
         };
         $(this).m4_Ajax(ajaxOptions, function(call){
-            console.log(call.res);
+            if(call.res);
         });
     });
 
