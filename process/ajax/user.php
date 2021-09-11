@@ -43,10 +43,13 @@
                         $res['e']['validator'][] = $e->getMessage();
                     }
                 }
+        global $user;
+        if($user->selectEmail($data['email'])){
+            $res['e'] = "This email address has an account in our site!";
+            $debugger?->log('Unique Check','0','AJAX', $res['e']);
+        }
         if($res['e'] ?? false)
             return $res;
-        global $user;
-        $user->select(#)
         foreach (userForm::$COLS as $col)
             $insert[$col] = $data[$col] ?? null;
         $res['data'] = $user->add($insert);
