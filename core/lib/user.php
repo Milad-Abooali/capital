@@ -59,8 +59,10 @@
         {
             $id = $this->db?->insert(self::$DB_TABLE, $data);
             $this->debugger?->log('Add', boolval($id),'user Lib', json_encode($data));
+            echo $id;
             if($id)
                 $this->sync($id);
+            echo $id;
             return $id;
         }
 

@@ -34,7 +34,8 @@
             'f_name',
             'l_name',
             'country',
-            'city'
+            'city',
+            'password'
         ];
 
         static array $REQUIRED = [
@@ -42,7 +43,8 @@
             'f_name',
             'l_name',
             'country',
-            'city'
+            'city',
+            'password'
         ];
 
         /**
