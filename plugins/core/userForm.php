@@ -104,6 +104,17 @@
         }
 
         /**
+         * Password New
+         * @throws Exception
+         */
+        public static function password_raw(mixed $value) :string
+        {
+            if(sanitize::isMix($value,1,1,1)==null && (strlen($value)>5))
+                return $value;
+            throw new Exception('Password is wrong');
+        }
+
+        /**
          * Password Get
          * @throws Exception
          */

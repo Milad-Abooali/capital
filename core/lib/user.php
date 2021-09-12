@@ -105,7 +105,6 @@
             return $result;
         }
 
-
         /**
          * Select User By Email
          */

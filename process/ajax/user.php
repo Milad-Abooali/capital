@@ -25,6 +25,10 @@
     use Exception;
     use Mahan4\user;
 
+    /**
+     * @param debugger|null $debugger
+     * @return array
+     */
     function add(?debugger $debugger) : array {
         $res=$data=$insert=[];
         foreach(userForm::$REQUIRED as $fields)
@@ -60,4 +64,12 @@
         return $res;
     }
 
+    /**
+     * @param debugger|null $debugger
+     * @return bool
+     */
+    function login(?debugger $debugger) : bool {
+        global $user;
+        $email = userForm::$k($v);
+    }
     // password_verify("MySuperSafePassword!", $hashed_password)
