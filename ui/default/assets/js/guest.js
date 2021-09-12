@@ -36,7 +36,7 @@
                     $('form#form-register').hide();
                     setTimeout(function(){
                         window.location.href = "dashboard";
-                    }, 4000);
+                    }, 2000);
                 }
             });
         } else {
