@@ -29,10 +29,14 @@
                 type:'form'
             };
             $(this).m4_Ajax(ajaxOptions, function(call){
-                if(call.res) {
+                if(call.res.e) {
                     toastr["error"](call.res.e)
-                } else {
-                    toastr["success"](call.res.data)
+                } else if(call.res.data) {
+                    toastr["success"]("Your account has been created.");
+                    $('form#form-register').hide();
+                    setTimeout(function(){
+                        window.location.href = "dashboard";
+                    }, 5000);
                 }
             });
         } else {
