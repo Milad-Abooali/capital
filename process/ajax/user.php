@@ -53,6 +53,8 @@
         foreach (userForm::$COLS as $col)
             $insert[$col] = $data[$col] ?? null;
         $res['data'] = $user->add($insert);
+        if($res['data'])
+            $user->sync($res['data']);
         return $res;
     }
 

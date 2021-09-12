@@ -40,7 +40,8 @@
                 }
             });
         } else {
-            toastr["error"]("Password and confirm password does not match!")
+            toastr["error"]("Password and confirm password does not match!");
+            $('#re-password').addClass('is-invalid');
         }
     });
 
