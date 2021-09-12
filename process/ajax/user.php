@@ -70,17 +70,18 @@
      * @throws Exception
      */
     function login(?debugger $debugger) : bool {
-        global $user;
+        $res=array();
         try {
+            global $user;
             $password = userForm::password_raw($_POST['password_raw']);
             $email = userForm::email($_POST['email']);
+            $user_check = $user->selectEmail($email);
+            if($user_check)
+                return password_verify($password, $user_check['password'])
+            return false;
         } catch (Exception $e) {
-            $debugger?->log('Type Check','0','AJAX', $e->getMessage());
-            $res['e'] = true;
+            $debugger?->log('User Check','0','AJAX', $e->getMessage());
+            return false;
         }
-        if($res['e'])
-            return $res;
-
-
     }
     // password_verify("MySuperSafePassword!", $hashed_password)
