@@ -67,9 +67,20 @@
     /**
      * @param debugger|null $debugger
      * @return bool
+     * @throws Exception
      */
     function login(?debugger $debugger) : bool {
         global $user;
-        $email = userForm::$k($v);
+        try {
+            $password = userForm::password_raw($_POST['password_raw']);
+            $email = userForm::email($_POST['email']);
+        } catch (Exception $e) {
+            $debugger?->log('Type Check','0','AJAX', $e->getMessage());
+            $res['e'] = true;
+        }
+        if($res['e'])
+            return $res;
+
+
     }
     // password_verify("MySuperSafePassword!", $hashed_password)
