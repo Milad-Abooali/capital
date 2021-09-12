@@ -123,7 +123,7 @@
         public function sync(int $id) : void
         {
             if(isset($_SESSION['M4']['user']) && $_SESSION['M4']['user']['id']===$id)
-                $_SESSION['M4']['user'] = $this->select($id);
+                $_SESSION['M4']['user'] = $this->selectId($id);
             $this->debugger?->log('Synced', 1,'user Lib', "User id:$id");
         }
 
