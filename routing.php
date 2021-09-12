@@ -25,12 +25,13 @@
 
     // Login
     $routing['login']['/'] = [
+        'process'   =>  'guest.php',
         'ui'        =>  'login',
         'cache'     =>  true,
     ];
     // Register
     $routing['register']['/'] = [
-        'process'   =>  'register.php',
+        'process'   =>  'guest.php',
         'ui'        =>  'register',
         'cache'     =>  true,
     ];
