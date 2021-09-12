@@ -32,7 +32,7 @@
                 if(call.res) {
                     toastr["error"](call.res.e)
                 } else {
-                    toastr["success"](call.res.data.id)
+                    toastr["success"](call.res.data)
                 }
             });
         } else {
