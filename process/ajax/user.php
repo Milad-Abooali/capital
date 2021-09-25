@@ -77,7 +77,7 @@
             $email = userForm::email($_POST['email']);
             $user_check = $user->selectEmail($email);
             if($user_check)
-                return password_verify($password, $user_check['password'])
+                return password_verify($password, $user_check['password']);
             return false;
         } catch (Exception $e) {
             $debugger?->log('User Check','0','AJAX', $e->getMessage());
