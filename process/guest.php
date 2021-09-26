@@ -12,4 +12,3 @@ $csc = new cscList\cscList();
 
     $captcha = m::plugin("captcha");
     $captcha->new();
-

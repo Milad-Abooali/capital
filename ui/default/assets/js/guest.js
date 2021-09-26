@@ -1,6 +1,7 @@
 /**
  * Guests Pages
  */
+
     toastr.options = {
         "closeButton": false,
         "debug": false,
@@ -46,8 +47,7 @@
         }
     });
 
-
-    /* Register */
+    /* Login */
     $('body').on('submit','form#form-login', function(e)
     {
         e.preventDefault();
@@ -75,4 +75,3 @@
             $('#re-password').addClass('is-invalid');
         }
     });
-
