@@ -28,6 +28,7 @@
     {
 
         public int $ID;
+        public int $REMEMBER_TIME = 60*60*24*30;
         public static string $DB_TABLE='users';
         private string $error='';
         private ?i_mysql $db;

@@ -79,6 +79,20 @@
             $user_check = $user->selectEmail($email);
             if($user_check)
                 $res['data'] = password_verify($password, $user_check['password']) ? 1 : 0;
+                if($res['data']) {
+                    $_SESSION['M4']['user'] = $user->selectId($user_check['id']);
+                    if() {
+                        $params = session_get_cookie_params();
+                        setcookie(
+                            session_name(),
+                            $_COOKIE[session_name()],
+                            time() + $user->REMEMBER_TIME,
+                            $params["path"],
+                            $params["domain"],
+                            $params["secure"],
+                            $params["httponly"]);
+                    }
+                }
             else
                 $res['e'] = "You have entered an invalid username or password!";
         } catch (Exception $e) {
