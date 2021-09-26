@@ -69,19 +69,21 @@
      * @return bool
      * @throws Exception
      */
-    function login(?debugger $debugger) : bool {
+    function login(?debugger $debugger) : array {
         $res=array();
         try {
             global $user;
-            $password = userForm::password_raw($_POST['password_raw']);
+            $captcha = userForm::captcha($_POST['captcha']);
+            $password = userForm::password_raw($_POST['password']);
             $email = userForm::email($_POST['email']);
             $user_check = $user->selectEmail($email);
             if($user_check)
-                return password_verify($password, $user_check['password']);
-            return false;
+                $res['res'] = password_verify($password, $user_check['password']) ? 1 : 0;
+            else
+                $res['e'] = "You have entered an invalid username or password!";
         } catch (Exception $e) {
             $debugger?->log('User Check','0','AJAX', $e->getMessage());
-            return false;
+            $res['e'] = $e->getMessage();
         }
+        return $res;
     }
-    // password_verify("MySuperSafePassword!", $hashed_password)

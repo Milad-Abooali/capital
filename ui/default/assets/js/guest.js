@@ -60,16 +60,18 @@
             $(this).m4_Ajax(ajaxOptions, function(call){
                 if(call.res.e) {
                     toastr["error"](call.res.e)
-                } else if(call.res.data) {
-                    toastr["success"]("Your account has been created.");
+                } else if(call.res === 1) {
+                    toastr["success"]("You are logged in.");
                     $('form#form-register').hide();
                     setTimeout(function(){
                         window.location.href = "dashboard";
                     }, 2000);
+                } else {
+                    toastr["error"]("Password is not much the user!");
                 }
             });
         } else {
-            toastr["error"]("Password and confirm password does not match!");
+            toastr["error"]("Email / Password does not match!");
             $('#re-password').addClass('is-invalid');
         }
     });

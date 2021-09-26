@@ -29,7 +29,7 @@ try {
                                     </div>
                                     <label for="city">Password</label>
                                     <div class="mb-3">
-                                        <input id="password" name="password" type="password" class="form-control" placeholder="Password" autocomplete="new-password" required>
+                                        <input id="password" name="password" type="password" class="form-control" placeholder="Password" autocomplete="password" required>
                                     </div>
                                     <div class="form-check form-switch">
                                         <input class="form-check-input" type="checkbox" id="rememberMe" checked="">
@@ -44,7 +44,7 @@ try {
                                         <input id="captcha" name="captcha" type="text" class="form-control" placeholder="Captcha" autocomplete="captchaFalse" required>
                                     </div>
                                     <div class="text-center">
-                                        <button type="button" class="btn bg-gradient-info w-100 mt-4 mb-0">Sign in</button>
+                                        <button type="submit" class="btn bg-gradient-info w-100 mt-4 mb-0">Sign in</button>
                                     </div>
                                 </form>
                             </div>
