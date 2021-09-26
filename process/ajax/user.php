@@ -81,7 +81,7 @@
                 $res['data'] = password_verify($password, $user_check['password']) ? 1 : 0;
                 if($res['data']) {
                     $_SESSION['M4']['user'] = $user->selectId($user_check['id']);
-                    if() {
+                    if($_POST['remember'] ?? false) {
                         $params = session_get_cookie_params();
                         setcookie(
                             session_name(),

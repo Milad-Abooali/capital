@@ -32,8 +32,8 @@ try {
                                         <input id="password" name="password" type="password" class="form-control" placeholder="Password" autocomplete="password" required>
                                     </div>
                                     <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" id="rememberMe" checked="">
-                                        <label class="form-check-label" for="rememberMe">Remember me</label>
+                                        <input class="form-check-input" type="checkbox" name="remember" id="remember" checked>
+                                        <label class="form-check-label" for="remember">Remember me</label>
                                     </div>
                                     <label for="city">Captcha</label>
                                     <div class="mb-3 plugin-captcha">
