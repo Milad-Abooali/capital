@@ -48,10 +48,7 @@ try {
                                     <div class="mb-3">
                                         <input id="city" name="city" type="text" class="form-control" placeholder="City" required>
                                     </div>
-                                    <label for="city">Password</label>
-                                    <div class="mb-3">
-                                        <input id="password" name="password" type="password" class="form-control" placeholder="Password" autocomplete="new-password" required>
-                                    </div>
+c
                                     <label for="city">Retype Password</label>
                                     <div class="mb-3">
                                         <input id="re-password" name="password"  type="password" class="form-control" placeholder="Password" autocomplete="new-password" required>

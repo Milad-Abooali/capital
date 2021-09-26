@@ -22,18 +22,26 @@ try {
                                 <p class="mb-0">Enter your email and password to sign in</p>
                             </div>
                             <div class="card-body">
-                                <form role="form">
-                                    <label>Email</label>
+                                <form id="form-login" name="login">
+                                    <label for="email">Email</label>
                                     <div class="mb-3">
-                                        <input type="email" name="email" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="email-addon">
+                                        <input id="email" name="email" type="email" class="form-control" placeholder="Email" required>
                                     </div>
-                                    <label>Password</label>
+                                    <label for="city">Password</label>
                                     <div class="mb-3">
-                                        <input type="password" name="password_raw" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="password-addon">
+                                        <input id="password" name="password" type="password" class="form-control" placeholder="Password" autocomplete="new-password" required>
                                     </div>
                                     <div class="form-check form-switch">
                                         <input class="form-check-input" type="checkbox" id="rememberMe" checked="">
                                         <label class="form-check-label" for="rememberMe">Remember me</label>
+                                    </div>
+                                    <label for="city">Captcha</label>
+                                    <div class="mb-3 plugin-captcha">
+                                        <img alt="captcha" src="">
+                                        <button type="button" class="btn recaptcha"><i class="fas fa-redo-alt"></i> </button>
+                                    </div>
+                                    <div class="mb-3">
+                                        <input id="captcha" name="captcha" type="text" class="form-control" placeholder="Captcha" autocomplete="captchaFalse" required>
                                     </div>
                                     <div class="text-center">
                                         <button type="button" class="btn bg-gradient-info w-100 mt-4 mb-0">Sign in</button>
