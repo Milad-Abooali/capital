@@ -66,8 +66,7 @@
 
     /**
      * @param debugger|null $debugger
-     * @return bool
-     * @throws Exception
+     * @return array
      */
     function login(?debugger $debugger) : array {
         $res=array();
@@ -97,6 +96,22 @@
                 $res['e'] = "You have entered an invalid username or password!";
         } catch (Exception $e) {
             $debugger?->log('User Check','0','AJAX', $e->getMessage());
+            $res['e'] = $e->getMessage();
+        }
+        return $res;
+    }
+
+    /**
+     * @param debugger|null $debugger
+     * @return array
+     */
+    function logout(?debugger $debugger) : array {
+        $res=array();
+        try{
+            unset($_SESSION['M4']['user']);
+            $res['data']=1;
+        } catch (Exception $e) {
+            $debugger?->log('Logout','0','AJAX', $e->getMessage());
             $res['e'] = $e->getMessage();
         }
         return $res;
