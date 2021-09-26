@@ -60,13 +60,13 @@
             $(this).m4_Ajax(ajaxOptions, function(call){
                 if(call.res.e) {
                     toastr["error"](call.res.e)
-                } else if(call.res === 1) {
+                } else if(call.res.data === 1) {
                     toastr["success"]("You are logged in.");
                     $('form#form-register').hide();
                     setTimeout(function(){
                         window.location.href = "dashboard";
                     }, 2000);
-                } else {
+                } else if(call.res.data === 0) {
                     toastr["error"]("Password is not much the user!");
                 }
             });

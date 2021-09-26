@@ -78,7 +78,7 @@
             $email = userForm::email($_POST['email']);
             $user_check = $user->selectEmail($email);
             if($user_check)
-                $res['res'] = password_verify($password, $user_check['password']) ? 1 : 0;
+                $res['data'] = password_verify($password, $user_check['password']) ? 1 : 0;
             else
                 $res['e'] = "You have entered an invalid username or password!";
         } catch (Exception $e) {
