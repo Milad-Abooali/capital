@@ -27,8 +27,7 @@
         if($('#password').val().length > 3 && $('#email').val().length>5 ){
             let ajaxOptions = {
                 call:'logout',
-                file:'user',
-                type:'form'
+                file:'user'
             };
             $(this).m4_Ajax(ajaxOptions, function(call){
                 if(call.res.e) {
