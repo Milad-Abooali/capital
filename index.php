@@ -159,12 +159,12 @@
     $m_global['header'][] = '<meta name="app-t" content="'.md5(APP['TOKEN']['ajax'].session_id()).'">';
 
     /**
-     * User
+     * Extra Lib > User
      */
     $user = (MAHAN['LIB']['user']) ?  new user(($_SESSION['M4']['user']['id'] ?? 0), $debugger) : null;
 
     /**
-     * Email
+     * Extra Lib > Email
      */
     $email = (MAHAN['LIB']['email']) ?  new email($debugger) : null;
 
