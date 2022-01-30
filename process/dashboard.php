@@ -9,3 +9,8 @@
     }
 
     global $user;
+
+    global $db_main;
+    $where = "type='user register'";
+    $notify =  $db_main->selectRow('notify', $where);
+    var_export($notify['email']);
