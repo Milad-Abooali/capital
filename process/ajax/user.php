@@ -78,6 +78,7 @@
                 ];
                 $email->send($reciver,'Account Created','','register');
             }
+
         }
         return $res;
     }
