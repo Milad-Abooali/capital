@@ -54,7 +54,7 @@ class email
             if ($theme) {
                 $content = $this->make($theme, $receiver['data'], $message);
             } else {
-                $content = wordwrap($message,70);
+                $content = $message;
             }
             $send = mail($receiver['email'], $subject, $content, $headers);
             $this->_log($subject, $content, $receiver, boolval($send));
