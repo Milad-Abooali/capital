@@ -22,4 +22,4 @@
             'email' =>  'test@sfd.df'
         ]
     ];
-    $email->send($receiver,'Account Created','','register');
+    $email->send($receiver,'Account Created','dcdc dcdc','register');
