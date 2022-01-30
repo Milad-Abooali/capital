@@ -31,6 +31,7 @@ class email
     private string $error='';
     private ?i_mysql $db;
     private ?debugger $debugger;
+    private string $path = APP['WS']['root'].'email-themes/';
 
     /**
      * email constructor.
@@ -76,7 +77,6 @@ class email
         $this->db->insert(self::DB_TABLE, $data);
     }
 
-    ////////////////////////////////////////////////////////////
     /**
      * make theme
      */
@@ -90,70 +90,6 @@ class email
             $replaceVal[] = $v;
         }
         return str_replace($searchVal, $replaceVal, $content);
-    }
-
-    /**
-     * Load Theme
-     * @param $id
-     * @return mixed
-     */
-    public function load($id)
-    {
-        $output['data'] = $this->db->selectId($this->table,$id);
-        $content = file_get_contents($this->path.$id.'.htm');
-        $output['content'] = $content;
-        return $output;
-    }
-
-    /**
-     * Creat New Theme
-     * @param $name
-     * @param $cat
-     * @return bool|int|mysqli_result|string
-     */
-    public function creat($name,$cat)
-    {
-        $data['name']      = $name;
-        $data['cat']       = $cat;
-        $data['update_by'] = $_SESSION['id'];
-        $id = $this->db->insert($this->table,$data);
-        if($id) {
-            $themeFile = fopen('../'.$this->path.$id.'.htm', "w") or die("Unable to open file!");
-            fclose($themeFile);
-        }
-        // Add actLog
-        global $actLog; $actLog->add('Email',$id,1,"Creat New Theme");
-        return ($id) ?? false;
-    }
-
-    public function update($id,$name,$cat,$content)
-    {
-        $data['name']      = $name;
-        $data['cat']       = $cat;
-        $data['update_by'] = $_SESSION['id'];
-        $update = $this->db->updateId($this->table,$id,$data);
-        if($update) {
-            $themeFile = fopen('../'.$this->path.$id.'.htm', "w") or die("Unable to open file!");
-            fwrite($themeFile, $content);
-            fclose($themeFile);
-        }
-        // Add actLog
-        global $actLog; $actLog->add('Email',$id,1,"Edit Theme");
-        return $update;
-    }
-
-    /**
-     * Delete Theme
-     * @param $id
-     * @return bool
-     */
-    public function delete($id)
-    {
-        $file = unlink($this->path.$id.'.htm');
-        $database = $this->db->deleteId($this->table,$id);
-        // Add actLog
-        global $actLog; $actLog->add('Email',$id,1,"Delete Theme");
-        return $file && $database;
     }
 
 }
