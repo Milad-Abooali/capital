@@ -21,6 +21,7 @@
     namespace Mahan4\AJAX;
 
     use Mahan4\debugger;
+    use Mahan4\email;
     use Mahan4\Plugins\userForm;
     use Exception;
     use Mahan4\user;
@@ -60,9 +61,23 @@
         if($res['data']){
             $_SESSION['M4']['user']['id']=$res['data'];
             $user->sync($res['data']);
+
             global $db_main;
-            $where = 'type';
+            $where = "type='user register'";
             $notify =  $db_main->selectRow('notify', $where);
+            if ($notify['email']) {
+                $email = new email();
+                $reciver = [
+                    'id'    =>  $res['data'],
+                    'email' =>  $_SESSION['M4']['user']['email'],
+                    'data'  =>  array(
+                        'fname' =>  $_SESSION['M4']['user']['f_name'],
+                        'lname' =>  $_SESSION['M4']['user']['l_name'],
+                        'email' =>  $_SESSION['M4']['user']['email'],
+                    )
+                ];
+                $email->send($reciver,'Account Created','','register');
+            }
         }
         return $res;
     }
