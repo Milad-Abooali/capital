@@ -70,6 +70,7 @@
 <script src="<?= ASSETS_PATH ?>js/bootstrap.min.js"></script>
 <script src="<?= ASSETS_PATH ?>js/perfect-scrollbar.min.js"></script>
 <script src="<?= ASSETS_PATH ?>js/smooth-scrollbar.min.js"></script>
+<script src="<?= ASSETS_PATH ?>js/toastr.js"></script>
 <script src="<?= ASSETS_PATH ?>js/chartjs.min.js"></script>
 <script>
     var ctx = document.getElementById("chart-bars").getContext("2d");
@@ -254,7 +255,7 @@
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
 <script src="<?= ASSETS_PATH ?>js/soft-ui-dashboard.min.js?v=1.0.3"></script>
-<script src="<?= ASSETS_PATH ?>js/guest.js"></script>
+<script src="<?= ASSETS_PATH ?>js/user.js" defer="1"></script>
 
         <?php foreach($this->Global_DATA['footer'] as $item) echo $item; ?>
     </body>

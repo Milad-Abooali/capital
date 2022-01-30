@@ -69,7 +69,7 @@
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
 <script src="<?= ASSETS_PATH ?>js/soft-ui-dashboard.min.js?v=1.0.3"></script>
-<script src="<?= ASSETS_PATH ?>js/guest.js"></script>
+<script src="<?= ASSETS_PATH ?>js/guest.js"  defer="1"></script>
 </body>
 
 </html>

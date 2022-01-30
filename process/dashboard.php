@@ -1,6 +1,11 @@
 <?php
 
-    global $user;
-    // $user->sync($_SESSION['M4']['user']['id']);
+    use Mahan4\m;
 
-    // unset($_SESSION['M4']['user']);
+    // Check Login
+    if(!isset($_SESSION['M4']['user']) || !$_SESSION['M4']['user']['id']) {
+        header('Location: /login');
+        exit;
+    }
+
+    global $user;
