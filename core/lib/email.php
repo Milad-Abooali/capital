@@ -28,7 +28,6 @@ class email
 {
 
     const DB_TABLE = 'email_log';
-    private string $error='';
     private ?i_mysql $db;
     private ?debugger $debugger;
     private string $path = APP['WS']['root'].'email-themes/';

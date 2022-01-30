@@ -11,8 +11,8 @@
 
     global $user;
 
+    global $email;
 
-    $email = new email();
     $receiver[] = [
         'id'    =>  1,
         'email' =>  'test@sfd.df',
