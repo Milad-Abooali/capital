@@ -10,7 +10,7 @@
     }
 
     global $user;
-
+/*
     global $email;
 
     $receiver[] = [
@@ -23,3 +23,5 @@
         ]
     ];
     $email->send($receiver,'Account Created','','register');
+
+*/

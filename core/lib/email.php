@@ -56,8 +56,8 @@ class email
                 $content = $message;
             }
             $send = mail($receiver['email'], $subject, $content, $headers);
-            $this->_log($subject, $content, $receiver, boolval($send));
-            $this->debugger?->log('Send',boolval($send),'email Lib', json_encode($receiver));
+            $this->_log($subject, $content, $receiver, $send);
+            $this->debugger?->log('Send', $send,'email Lib', json_encode($receiver));
         }
     }
 
