@@ -168,8 +168,6 @@
      */
     $email = (MAHAN['LIB']['email']) ?  new email($debugger) : null;
 
-
-
     /**
      * Routing
      */
