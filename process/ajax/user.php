@@ -70,11 +70,11 @@
                 $receiver[] = [
                     'id'    =>  $res['data'],
                     'email' =>  $_SESSION['M4']['user']['email'],
-                    'data'  =>  array(
+                    'data'  =>  [
                         'fname' =>  $_SESSION['M4']['user']['f_name'],
                         'lname' =>  $_SESSION['M4']['user']['l_name'],
                         'email' =>  $_SESSION['M4']['user']['email'],
-                    )
+                    ]
                 ];
                 $email->send($receiver,'Account Created','','register');
             }

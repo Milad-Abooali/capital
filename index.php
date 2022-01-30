@@ -164,6 +164,13 @@
     $user = (MAHAN['LIB']['user']) ?  new user(($_SESSION['M4']['user']['id'] ?? 0), $debugger) : null;
 
     /**
+     * Email
+     */
+    $email = (MAHAN['LIB']['email']) ?  new email($debugger) : null;
+
+
+
+    /**
      * Routing
      */
     $view = array();

@@ -1,5 +1,6 @@
 <?php
 
+    use Mahan4\email;
     use Mahan4\m;
 
     // Check Login
@@ -10,14 +11,15 @@
 
     global $user;
 
+
     $email = new email();
     $receiver[] = [
         'id'    =>  1,
         'email' =>  'test@sfd.df',
-        'data'  =>  array(
+        'data'  =>  [
             'fname' =>  'name',
             'lname' =>  'abooo',
-            'email' =>  'test@sfd.df',
-        )
+            'email' =>  'test@sfd.df'
+        ]
     ];
     $email->send($receiver,'Account Created','','register');
