@@ -67,7 +67,7 @@
             $notify =  $db_main->selectRow('notify', $where);
             if ($notify['email']) {
                 $email = new email();
-                $reciver = [
+                $receiver[] = [
                     'id'    =>  $res['data'],
                     'email' =>  $_SESSION['M4']['user']['email'],
                     'data'  =>  array(
@@ -76,7 +76,7 @@
                         'email' =>  $_SESSION['M4']['user']['email'],
                     )
                 ];
-                $email->send($reciver,'Account Created','','register');
+                $email->send($receiver,'Account Created','','register');
             }
 
         }

@@ -11,7 +11,7 @@
     global $user;
 
     $email = new email();
-    $reciver = [
+    $receiver[] = [
         'id'    =>  1,
         'email' =>  'test@sfd.df',
         'data'  =>  array(
@@ -20,4 +20,4 @@
             'email' =>  'test@sfd.df',
         )
     ];
-    $email->send($reciver,'Account Created','','register');
+    $email->send($receiver,'Account Created','','register');
