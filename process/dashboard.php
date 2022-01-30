@@ -10,7 +10,14 @@
 
     global $user;
 
-    global $db_main;
-    $where = "type='user register'";
-    $notify =  $db_main->selectRow('notify', $where);
-    var_export($notify['email']);
+    $email = new email();
+    $reciver = [
+        'id'    =>  1,
+        'email' =>  'test@sfd.df',
+        'data'  =>  array(
+            'fname' =>  'name',
+            'lname' =>  'abooo',
+            'email' =>  'test@sfd.df',
+        )
+    ];
+    $email->send($reciver,'Account Created','','register');
