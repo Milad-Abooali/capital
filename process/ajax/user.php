@@ -60,6 +60,9 @@
         if($res['data']){
             $_SESSION['M4']['user']['id']=$res['data'];
             $user->sync($res['data']);
+            global $db_main;
+            $where = 'type';
+            $notify =  $db_main->selectRow('notify', $where);
         }
         return $res;
     }
