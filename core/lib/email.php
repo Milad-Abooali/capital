@@ -81,6 +81,8 @@ class email
      */
     public function make(string $name, $data=null, $message=null) :string
     {
+        $this->debugger?->log('path', 1,'email Lib', $this->path);
+
         $content = (file_exists($this->path.$name.'.htm')) ? $this->path.$name.'.htm' : '';
         $searchVal[] = '{__ExtraMessage__}';
         $replaceVal[] = $message;
