@@ -88,7 +88,7 @@ class email
             $searchVal[] = '{~~'.$k.'~~}';
             $replaceVal[] = $v;
         }
-        return ($content) ? str_replace($searchVal, $replaceVal, $content) : ($message."\n".json_encode($data));
+        return ($content) ? str_replace($searchVal, $replaceVal, $content) : ($message."\r\n<br>\r\n".json_encode($data));
     }
 
 }
