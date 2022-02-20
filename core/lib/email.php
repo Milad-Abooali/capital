@@ -82,6 +82,7 @@ class email
     public function make(string $name, $data=null, $message=null) :string
     {
         $this->debugger?->log('path', 1,'email Lib', $this->path);
+        $this->debugger?->log('name', 1,'email Lib', $name);
 
         $content = (file_exists($this->path.$name.'.htm')) ? $this->path.$name.'.htm' : '';
         $searchVal[] = '{__ExtraMessage__}';
