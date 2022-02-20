@@ -81,7 +81,7 @@ class email
      */
     public function make(string $name, $data=null, $message=null) :string
     {
-        $content = $this->path.$name.'.htm';
+        $content = (file_exists($this->path.$name.'.htm')) ? $this->path.$name.'.htm' : '';
         $searchVal[] = '{__ExtraMessage__}';
         $replaceVal[] = $message;
         if ($data) foreach ($data as $k => $v) {
