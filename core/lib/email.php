@@ -81,10 +81,10 @@ class email
      */
     public function make(string $name, $data=null, $message=null) :string
     {
-        $this->debugger?->log('path', 1,'email Lib', $this->path);
-        $this->debugger?->log('name', 1,'email Lib', $name);
+        $this->debugger?->log('path', 1,'email Lib', file_exists(__DIR__.'/../../'.$this->path.$name.'.htm')?1:0);
 
-        $content = (file_exists($this->path.$name.'.htm')) ? $this->path.$name.'.htm' : '';
+        $them_file = (file_exists(__DIR__.'/../../'.$this->path.$name.'.htm')) ? __DIR__.'/../../'.$this->path.$name.'.htm' : false;
+        $content = ($them_file) ? file_get_contents($them_file) : '';
         $searchVal[] = '{__ExtraMessage__}';
         $replaceVal[] = $message;
         if ($data) foreach ($data as $k => $v) {
