@@ -71,8 +71,8 @@
                     'id'    =>  $res['data'],
                     'email' =>  $_SESSION['M4']['user']['email'],
                     'data'  =>  [
-                        'fname' =>  $_SESSION['M4']['user']['f_name'],
-                        'email' =>  $_SESSION['M4']['user']['email'],
+                        'f_name' =>  $_SESSION['M4']['user']['f_name'],
+                        'email' =>  $_SESSION['M4']['user']['email']
                     ]
                 ];
                 $email->send($receiver,'Account Created','','register');
