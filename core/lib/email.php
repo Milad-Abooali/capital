@@ -83,7 +83,7 @@ class email
     {
         $them_file = (file_exists(__DIR__.'/../../'.$this->path.$name.'.htm')) ? __DIR__.'/../../'.$this->path.$name.'.htm' : false;
         $content = ($them_file) ? file_get_contents($them_file) : '';
-        $searchVal[] = '{__ExtraMessage__}';
+        $searchVal[] = '{~~ExtraMessage~~}';
         $replaceVal[] = $message;
         if ($data) foreach ($data as $k => $v) {
             $searchVal[] = '{~~'.$k.'~~}';
