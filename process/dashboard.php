@@ -10,16 +10,3 @@
     }
 
     global $user;
-
-    global $email;
-
-    $receiver[] = [
-        'id'    =>  1,
-        'email' =>  'test@sfd.df',
-        'data'  =>  [
-            'fname' =>  'name',
-            'lname' =>  'abooo',
-            'email' =>  'test@sfd.df'
-        ]
-    ];
-    $email->send($receiver,'Account Created','dcdc dcdc','register');
