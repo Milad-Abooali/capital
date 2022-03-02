@@ -35,6 +35,14 @@
         'ui'        =>  'register',
         'cache'     =>  true,
     ];
+
+    // Register
+    $routing['recover-password']['/'] = [
+        'process'   =>  'guest.php',
+        'ui'        =>  'recover-password',
+        'cache'     =>  true,
+    ];
+
     // dashboard
     $routing['dashboard']['/'] = [
         'process'   =>  'dashboard.php',
