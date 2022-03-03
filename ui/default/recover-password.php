@@ -20,7 +20,7 @@ try {
                             <div class="card-header pb-0 text-left bg-transparent">
                                 <h3 class="font-weight-bolder text-info text-gradient">Welcome back</h3>
                                 <p class="mb-0">
-                                    Enter your email and we'll send you a pin code to get back into your account.
+                                    Enter your email and we'll send a pin code to your phone (SMS) to get back into your account.
                                 </p>
                             </div>
                             <div class="card-body">
@@ -28,14 +28,6 @@ try {
                                     <label for="email">Email</label>
                                     <div class="mb-3">
                                         <input id="email" name="email" type="email" class="form-control" placeholder="Email" required>
-                                    </div>
-                                    <label for="city">Password</label>
-                                    <div class="mb-3">
-                                        <input id="password" name="password" type="password" class="form-control" placeholder="Password" autocomplete="password" required>
-                                    </div>
-                                    <div class="form-check form-switch">
-                                        <input class="form-check-input" type="checkbox" name="remember" id="remember" checked>
-                                        <label class="form-check-label" for="remember">Remember me</label>
                                     </div>
                                     <label for="city">Captcha</label>
                                     <div class="mb-3 plugin-captcha">
