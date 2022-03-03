@@ -24,7 +24,7 @@ try {
                                 </p>
                             </div>
                             <div class="card-body">
-                                <form id="form-login" name="login">
+                                <form id="form-recovery" name="login">
                                     <label for="email">Email</label>
                                     <div class="mb-3">
                                         <input id="email" name="email" type="email" class="form-control" placeholder="Email" required>
@@ -46,10 +46,6 @@ try {
                                 <p class="mb-4 text-sm mx-auto">
                                     Don't have an account?
                                     <a href="register" class="text-info text-gradient font-weight-bold">Sign up</a>
-                                </p>
-
-                                <p class="mb-4 text-sm mx-auto">
-                                    <a href="recover-password" class="text-info text-gradient font-weight-bold">Forgot password?</a>
                                 </p>
                             </div>
                         </div>
