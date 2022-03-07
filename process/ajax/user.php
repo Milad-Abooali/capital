@@ -149,23 +149,9 @@
             if($user_check) {
                 // Send recover SMS / Email
 
-            }
-            if($user_check) {
-                $_SESSION['M4']['user'] = $user->selectId($user_check['id']);
-                if($_POST['remember'] ?? false) {
-                    $params = session_get_cookie_params();
-                    setcookie(
-                        session_name(),
-                        $_COOKIE[session_name()],
-                        time() + $user->REMEMBER_TIME,
-                        $params["path"],
-                        $params["domain"],
-                        $params["secure"],
-                        $params["httponly"]);
-                }
-            }
-            else
+            } else {
                 $res['e'] = "You have entered an invalid username or password!";
+            }
         } catch (Exception $e) {
             $debugger?->log('User Check','0','AJAX', $e->getMessage());
             $res['e'] = $e->getMessage();
