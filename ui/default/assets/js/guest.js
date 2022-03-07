@@ -75,3 +75,32 @@
             $('#re-password').addClass('is-invalid');
         }
     });
+
+    /* Recover */
+    $('body').on('submit','form#form-login', function(e)
+    {
+        e.preventDefault();
+        if($('#password').val().length > 3 && $('#email').val().length>5 ){
+            let ajaxOptions = {
+                call:'login',
+                file:'user',
+                type:'form'
+            };
+            $(this).m4_Ajax(ajaxOptions, function(call){
+                if(call.res.e) {
+                    toastr["error"](call.res.e)
+                } else if(call.res.data === 1) {
+                    toastr["success"]("You are logged in.");
+                    $('form#form-register').hide();
+                    setTimeout(function(){
+                        window.location.href = "dashboard";
+                    }, 2000);
+                } else if(call.res.data === 0) {
+                    toastr["error"]("Password is not much the user!");
+                }
+            });
+        } else {
+            toastr["error"]("Email / Password does not match!");
+            $('#re-password').addClass('is-invalid');
+        }
+    });
