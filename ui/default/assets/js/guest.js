@@ -80,9 +80,9 @@
     $('body').on('submit','form#form-login', function(e)
     {
         e.preventDefault();
-        if($('#password').val().length > 3 && $('#email').val().length>5 ){
+        if( $('#email').val().length>5 ){
             let ajaxOptions = {
-                call:'login',
+                call:'recoverPass',
                 file:'user',
                 type:'form'
             };
@@ -90,17 +90,17 @@
                 if(call.res.e) {
                     toastr["error"](call.res.e)
                 } else if(call.res.data === 1) {
-                    toastr["success"]("You are logged in.");
+                    toastr["success"]("Recover pin code sent successfully");
                     $('form#form-register').hide();
                     setTimeout(function(){
-                        window.location.href = "dashboard";
+                      //  window.location.href = "dashboard";
                     }, 2000);
                 } else if(call.res.data === 0) {
-                    toastr["error"]("Password is not much the user!");
+                    toastr["error"]("Email is not found!");
                 }
             });
         } else {
-            toastr["error"]("Email / Password does not match!");
-            $('#re-password').addClass('is-invalid');
+            toastr["error"]("Email is not in right format!");
+            $('#email').addClass('is-invalid');
         }
     });
