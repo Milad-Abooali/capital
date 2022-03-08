@@ -147,7 +147,13 @@
             $email = userForm::email($_POST['email']);
             $user_check = $user->selectEmail($email);
             if($user_check) {
+
+                // Select User ID
+                $res['user_check'] = $user_check;
+
                 // Send recover SMS / Email
+
+
 
             } else {
                 $res['e'] = "You have entered an invalid username or password!";

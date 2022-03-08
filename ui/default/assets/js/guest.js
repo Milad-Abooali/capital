@@ -77,7 +77,7 @@
     });
 
     /* Recover */
-    $('body').on('submit','form#form-login', function(e)
+    $('body').on('submit','form#form-recovery', function(e)
     {
         e.preventDefault();
         if( $('#email').val().length>5 ){
