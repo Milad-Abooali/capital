@@ -145,11 +145,11 @@
             global $user;
             $captcha = userForm::captcha($_POST['captcha']);
             $email = userForm::email($_POST['email']);
-            $user_check = $user->selectEmail($email);
-            if($user_check) {
+            $req_user = $user->selectEmail($email);
+            if($req_user) {
 
                 // Select User ID
-                $res['user_check'] = $user_check;
+                $res['user'] = $req_user;
 
                 // Send recover SMS / Email
 
