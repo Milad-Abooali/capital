@@ -27,9 +27,9 @@
     {
 
         /**
-         * Hide Center Character
+         * Hide Central Characters
          */
-        public static function hideCenter(string $input, $hiddenChar='*') :string
+        public static function hideCentralChars(string $input, $hiddenChar='*') :string
         {
             $l = strlen($input);
             if($l<3)
