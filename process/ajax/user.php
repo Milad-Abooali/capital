@@ -151,6 +151,9 @@
                 // Select User ID
                 $res['user'] = $req_user;
 
+                // check if  phone
+                $res['user']['phone'];
+
                 // Send recover SMS / Email
 
 
