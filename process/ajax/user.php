@@ -22,6 +22,7 @@
 
     use Mahan4\debugger;
     use Mahan4\email;
+    use Mahan4\encrypt;
     use Mahan4\Plugins\userForm;
     use Exception;
     use Mahan4\user;
@@ -147,17 +148,10 @@
             $email = userForm::email($_POST['email']);
             $req_user = $user->selectEmail($email);
             if($req_user) {
-
-                // Select User ID
-                $res['user'] = $req_user;
-
-                // check if  phone
-                $res['user']['phone'];
-
-                // Send recover SMS / Email
-
-
-
+                $res['user']['id'] = encrypt::hideCentralChars($req_user['id']);
+                $res['user']['email'] = encrypt::hideCentralChars($req_user['email']);
+                if($req_user['phone'])
+                    $res['user']['phone'] = encrypt::hideCentralChars($req_user['phone']);
             } else {
                 $res['e'] = "You have entered an invalid username or password!";
             }
