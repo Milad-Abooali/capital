@@ -147,8 +147,8 @@
             $captcha = userForm::captcha($_POST['captcha']);
             $email = userForm::email($_POST['email']);
             $req_user = $user->selectEmail($email);
-            if($req_user) {
-                $res['user']['id'] = encrypt::hideCentralChars($req_user['id']);
+            if($req_user){
+                $res['user']['id'] = $req_user['id'];
                 $res['user']['email'] = encrypt::hideCentralChars($req_user['email']);
                 if($req_user['phone'])
                     $res['user']['phone'] = encrypt::hideCentralChars($req_user['phone']);
